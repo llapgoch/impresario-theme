@@ -2966,13 +2966,17 @@ select.form-control.input-lg + .chosen-container {
     fieldset[disabled] .form-control {
       background-color: $transparent-white-3;
       border: 0;
-      color: $font-color;
+      color: #353535;
 
       &:focus {
         background-color: $transparent-white-3;
         @include box-shadow(none!important);
         border: 0;
       }
+    }
+
+    .form-control.form-input-error{
+        border: #ff00007a;
     }
 
     .table-options {
@@ -5991,6 +5995,12 @@ a.submit {
 
 }
 
+.alert .alert-list {
+  list-style: square;
+  padding-left: 10px;
+  margin-bottom: 0;
+}
+
 /**************************************************/
 /************* ALERTS & NOTIFICATIONS *************/
 /**************************************************/
@@ -5999,15 +6009,8 @@ alert alert-success
   padding: 5px 15px;
   font-size: 14px;
 
-
   &.alert-big {
     padding: 15px;
-  }
-
-  .alert-list {
-    list-style: square;
-    padding-left: 10px;
-    margin-bottom: 0;
   }
 
   &.alert-dismissable {
