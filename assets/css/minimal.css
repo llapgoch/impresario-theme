@@ -6217,7 +6217,7 @@ select.form-control.input-lg + .chosen-container .chosen-choices {
       box-shadow: none !important;
       border: 0; }
   [class^="tile"][class*="transparent-"] .form-control.form-input-error {
-    border: #ff00007a; }
+    border: 1px solid #ff00007a; }
   [class^="tile"][class*="transparent-"] .table-options.paging-info {
     color: rgba(255, 255, 255, 0.7); }
   [class^="tile"][class*="transparent-"] .search {
