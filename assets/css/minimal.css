@@ -8383,88 +8383,116 @@ a.submit:hover {
 /**************************************************/
 /************* ALERTS & NOTIFICATIONS *************/
 /**************************************************/
+alert alert-success
 .alert {
   padding: 5px 15px;
-  font-size: 12px; }
-  .alert.alert-big {
+  font-size: 14px; }
+  alert alert-success
+.alert.alert-big {
     padding: 15px; }
-  .alert .alert-list {
+  alert alert-success
+.alert .alert-list {
     list-style: square;
     padding-left: 10px;
     margin-bottom: 0; }
-  .alert.alert-dismissable {
+  alert alert-success
+.alert.alert-dismissable {
     padding-right: 35px; }
-  .alert.alert-red {
+  alert alert-success
+.alert.alert-red {
     color: #ff4a43;
     background-color: #ffdddc;
     border-color: #ffaca9; }
-    .alert.alert-red .alert-link {
+    alert alert-success
+.alert.alert-red .alert-link {
       color: #ff1910; }
-  .alert.alert-cyan {
+  alert alert-success
+.alert.alert-cyan {
     color: #22beef;
     background-color: #e0f6fd;
     border-color: #b1e8f9; }
-    .alert.alert-cyan .alert-link {
+    alert alert-success
+.alert.alert-cyan .alert-link {
       color: #0fa1cf; }
-  .alert.alert-green {
+  alert alert-success
+.alert.alert-green {
     color: #a2d200;
-    background-color: #fbffec;
+    background-color: black;
     border-color: #efffb9; }
-    .alert.alert-green .alert-link {
+    alert alert-success
+.alert.alert-green .alert-link {
       color: #7b9f00; }
-  .alert.alert-orange {
+  alert alert-success
+.alert.alert-orange {
     color: #ffc100;
     background-color: #fff3cc;
     border-color: #ffe699; }
-    .alert.alert-orange .alert-link {
+    alert alert-success
+.alert.alert-orange .alert-link {
       color: #cc9a00; }
-  .alert.alert-amethyst {
+  alert alert-success
+.alert.alert-amethyst {
     color: #cd97eb;
     background-color: #f6edfb;
     border-color: #e2c2f3; }
-    .alert.alert-amethyst .alert-link {
+    alert alert-success
+.alert.alert-amethyst .alert-link {
       color: #b86ce3; }
-  .alert.alert-greensea {
+  alert alert-success
+.alert.alert-greensea {
     color: #16a085;
     background-color: #d5f9f2;
     border-color: #92f0de; }
-    .alert.alert-greensea .alert-link {
+    alert alert-success
+.alert.alert-greensea .alert-link {
       color: #107360; }
-  .alert.alert-hotpink {
+  alert alert-success
+.alert.alert-hotpink {
     color: #FF0066;
     background-color: #ffcce0;
     border-color: #ff99c2; }
-    .alert.alert-hotpink .alert-link {
+    alert alert-success
+.alert.alert-hotpink .alert-link {
       color: #cc0052; }
-  .alert.alert-drank {
+  alert alert-success
+.alert.alert-drank {
     color: #A40778;
     background-color: #fdc7ee;
     border-color: #fb96de; }
-    .alert.alert-drank .alert-link {
+    alert alert-success
+.alert.alert-drank .alert-link {
       color: #730554; }
-  .alert.alert-dutch {
+  alert alert-success
+.alert.alert-dutch {
     color: #1693A5;
     background-color: #c3f0f7;
     border-color: #96e6f1; }
-    .alert.alert-dutch .alert-link {
+    alert alert-success
+.alert.alert-dutch .alert-link {
       color: #106b78; }
-  .alert.alert-blue {
+  alert alert-success
+.alert.alert-blue {
     color: #418bca;
     background-color: #e1ecf6;
     border-color: #b9d4eb; }
-    .alert.alert-blue .alert-link {
+    alert alert-success
+.alert.alert-blue .alert-link {
       color: #2f71a9; }
-  .alert.alert-slategray {
+  alert alert-success
+.alert.alert-slategray {
     color: #3f4e62;
     background-color: #c6cfda;
     border-color: #a7b4c6; }
-    .alert.alert-slategray .alert-link {
+    alert alert-success
+.alert.alert-slategray .alert-link {
       color: #2b3543; }
-  .alert.alert-redbrown {
+  alert alert-success
+.alert.alert-redbrown {
     color: #d9544f;
     background-color: #f4cecd;
     border-color: #eba6a3; }
-    .alert.alert-redbrown .alert-link {
+    alert alert-success
+.alert.alert-redbrown .alert-link {
       color: #c9312c; }
 
 .notification {
@@ -8480,11 +8508,13 @@ a.submit:hover {
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
+  .notification .notification-list {
+    margin-bottom: 0; }
   .notification.notification-warning {
     color: #8a6d3b;
     background-color: #fcf8e3;
     border-color: #f8e2b5; }
-  .notification.notification-danger {
+  .notification.notification-error {
     color: #a94442;
     background-color: #f2dede;
     border-color: #e4bac0; }

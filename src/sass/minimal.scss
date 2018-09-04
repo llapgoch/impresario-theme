@@ -5994,10 +5994,10 @@ a.submit {
 /**************************************************/
 /************* ALERTS & NOTIFICATIONS *************/
 /**************************************************/
-
+alert alert-success
 .alert {
   padding: 5px 15px;
-  font-size: 12px;
+  font-size: 14px;
 
 
   &.alert-big {
@@ -6036,7 +6036,7 @@ a.submit {
 
   &.alert-green {
     color: $green;
-    background-color: lighten($green, 55%);
+    background-color: darken($green, 55%);
     border-color: lighten($green, 45%);
 
     .alert-link {
@@ -6144,13 +6144,17 @@ a.submit {
   @include border-radius(4px);
   @include box-shadow(0 1px 0 $transparent-black-1);
 
+  .notification-list {
+    margin-bottom: 0;
+  }
+
   &.notification-warning {
     color: #8a6d3b;
     background-color: #fcf8e3;
     border-color: darken(#faebcc, 5%);
   }
 
-  &.notification-danger {
+  &.notification-error {
     color: #a94442;
     background-color: #f2dede;
     border-color: darken(#ebccd1, 5%);
