@@ -1,10 +1,10 @@
 ;(function($){
 	$(document).on('ready', function(){
 		var statusSelector = '.js-status',
-			dataSelector = '.js-enquiry-data',
-			formSelector = '.js-enquiry-form',
+			dataSelector = '.js-quote-data',
+			formSelector = '.js-quote-form',
 			dateCompletedSelector = '.js-date-completed',
-			engineerSelector = '.js-engineer',
+			completedById = '.js-completed-by-id',
 			editData = JSON.parse($(dataSelector).val());
 
 		if(editData) {
@@ -14,10 +14,10 @@
 		function addSubmitEvent(){
 			$(formSelector).on('submit.impresario', function (ev) {
 				if (editData['completedStatus'] == $(statusSelector).val()
-					&& parseInt(editData['hasQuote'], 10) == 0
-					&& $(dateCompletedSelector).val() && $(engineerSelector).val()){
+					&& parseInt(editData['hasProject'], 10) == 0
+					&& $(dateCompletedSelector).val() && $(completedById).val()){
 
-					if(confirm('This will create a quote for the enquiry, are you sure?') == false){
+					if(confirm('This will create a new project for the quote, are you sure?') == false){
 						ev.preventDefault();
 					}
 				}
