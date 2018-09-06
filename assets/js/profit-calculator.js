@@ -5,10 +5,20 @@
 			var cost = parseFloat($('.js-net-cost').val());
 
 			if(isNaN(sell) || isNaN(cost)){
-				return $('.js-profit-calculate').val('- -');
+				$('.js-profit-calculate').val('- -');
+				$('.js-gp-calculate').val('- -');
+				return;
 			}
 
-			$('.js-profit-calculate').val("£" + Math.max(0, sell - cost));
+			var profit = Math.max(0, sell - cost);
+
+			$('.js-profit-calculate').val("£" + profit);
+
+			if(profit && cost) {
+				$('.js-gp-calculate').val(Math.round((profit / cost) * 100) / 100);
+			}else{
+				$('.js-gp-calculate').val('- -');
+			}
 		}
 
 		$('.js-net-sell, .js-net-cost').on('keyup', function(){
