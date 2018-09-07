@@ -7403,8 +7403,8 @@ ul.inlineSelect {
           font-size: 48px;
           margin-top: 5px; }
         .card-container .card .front .media .media-body small {
-          font-size: 12px;
-          color: rgba(255, 255, 255, 0.5);
+          font-size: 14px;
+          color: #fff;
           text-transform: uppercase;
           font-weight: 300; }
         .card-container .card .front .media .media-body h2 {

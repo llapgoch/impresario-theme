@@ -5,7 +5,7 @@
 			dateFormat: 'dd/mm/yy'
 		};
 
-		$('.js-date-picker').each(function(){
+		$('.js-date-picker:not(.js-is-locked)').each(function(){
 			var $this = $(this);
 			var config = $this.data('dateSettings') || {};
 			$this.datepicker($.extend({}, dateDefaults, config));

@@ -1,17 +1,18 @@
 <?php get_header(); ?>
 
-	<main role="main" class="main-container">
+	<main role="main">
+        <div class="row">
         <?php get_sidebar(); ?>
 		<!-- section -->
-		<section>
+		<section class="row col-md-10 col-sm-11">
+            <?php echo do_shortcode('[page_heading]');?>
 
-			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
+                <div class="cards row">
+                    <?php echo do_shortcode('[body_content]');?>
+                </div>
 
 		</section>
+        </div>
 		<!-- /section -->
 	</main>
 
