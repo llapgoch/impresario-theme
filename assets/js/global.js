@@ -14,6 +14,8 @@
 		$('.js-delete-confirm').on('submit.impresario', function(){
 			return confirm('Are you sure you want to delete this?');
 		})
+
+		widthLess992();
 	});
 
 
@@ -76,7 +78,7 @@
 	/* run this function after page ready */
 	/**************************************/
 
-	widthLess992();
+
 	// widthLess768();
 
 	/***************************************/

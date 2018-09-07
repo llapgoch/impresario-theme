@@ -28,7 +28,7 @@
                             <strong>IMPRESARIO</strong>
                         </a>
                     </div>
-
+                    <!--
                     <ul class="nav navbar-nav quick-actions">
                         <li>
                             <a class=" button" data-toggle="dropdown" href="#">
@@ -108,7 +108,7 @@
 
                         </li>
                     </ul>
-
+                    -->
 
                 </div>
 
