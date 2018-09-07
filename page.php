@@ -1,10 +1,10 @@
 <?php get_header(); ?>
-    <div id="content" class="col-md-12">
-        <main role="main" class="main-container">
+
+        <main role="main" class="row">
             <?php get_sidebar(); ?>
             <!-- section -->
-            <div class="main-content-container">
-                <section>
+
+                <section class="row col-md-10 col-sm-11">
 
 
                 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -41,7 +41,7 @@
             </div>
             <!-- /section -->
         </main>
-    </div>
+
 
 
 <?php get_footer(); ?>

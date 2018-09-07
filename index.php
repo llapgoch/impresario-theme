@@ -4,7 +4,7 @@
         <div class="row">
         <?php get_sidebar(); ?>
 		<!-- section -->
-		<section class="row col-md-10 col-sm-11">
+		<section class="row col-lg-10 col-sm-11">
             <?php echo do_shortcode('[page_heading]');?>
 
                 <div class="cards row">
