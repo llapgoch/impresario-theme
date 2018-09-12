@@ -922,7 +922,6 @@ menu {
 /***********************************/
 
 .navbar-nav.side-nav {
-  width: 250px;
   padding-bottom: 0;
   border-radius: 0;
   border: none;
@@ -7348,8 +7347,6 @@ alert alert-success
             }
           }
 
-          &.sort-asc,
-          &.sort-desc,
           &.sort-asc:hover,
           &.sort-desc:hover {
             background-color: $transparent-black-1;
