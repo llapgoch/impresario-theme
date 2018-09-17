@@ -15,4 +15,4 @@ gulp.task('default', function(){
 		.pipe(gulp.dest('assets/css/'))
 });
 
-gulp.watch('src/sass/*.scss', ['default']);
+gulp.watch('src/sass/**/*.scss', ['default']);
