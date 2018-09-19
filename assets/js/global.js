@@ -11,10 +11,6 @@
 			$this.datepicker($.extend({}, dateDefaults, config));
 		});
 
-		$('.js-delete-confirm').on('submit.impresario', function(){
-			return confirm('Are you sure you want to delete this?');
-		})
-
 		widthLess992();
 	});
 
