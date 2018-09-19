@@ -12,6 +12,7 @@
 		}
 
 		function addSubmitEvent(){
+
 			$(formSelector).on('submit.impresario', function (ev) {
 				if (editData['completedStatus'] == $(statusSelector).val()
 					&& parseInt(editData['hasQuote'], 10) == 0

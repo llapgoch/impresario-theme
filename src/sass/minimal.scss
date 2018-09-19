@@ -2268,6 +2268,10 @@ select.form-control.input-lg + .chosen-container {
     padding: 0;
   }
 
+  &.noshadow {
+    box-shadow: none !important;
+  }
+
   &.left-nav {
     display: table;
 
@@ -2819,30 +2823,7 @@ select.form-control.input-lg + .chosen-container {
     table {
       border-color: $transparent-white-1;
 
-      &.table-bordered {
-        border-collapse: separate;
-        border: 0;
 
-        >thead,
-        >tbody,
-        >tfoot {
-          >tr {
-            td,
-            th {
-              border: 1px solid $transparent-white-2;
-              border-bottom: 0;
-              border-right: 0;
-            }
-
-            &:last-child {
-              td,
-              th {
-                border-bottom: 1px solid $transparent-white-2;
-              }
-            }
-          }
-        }
-      }
 
       a {
         color: $font-color-white;
@@ -3051,30 +3032,6 @@ select.form-control.input-lg + .chosen-container {
         }
       }
 
-      &.table-bordered {
-        border-collapse: separate;
-        border: 0;
-
-        >thead,
-        >tbody,
-        >tfoot {
-          >tr {
-            td,
-            th {
-              border: 1px solid $transparent-white-6;
-              border-bottom: 0;
-              border-right: 0;
-            }
-
-            &:last-child {
-              td,
-              th {
-                border-bottom: 1px solid $transparent-white-6;
-              }
-            }
-          }
-        }
-      }
 
       &.table-hover>tbody>tr:hover>td,
       &.table-hover>tbody>tr:hover>th {
@@ -7182,6 +7139,14 @@ alert alert-success
 
 .table {
   margin-bottom: 0;
+
+  tr.borderless {
+    border: none;
+
+    td{
+      border: none;
+    }
+  }
 
   td,
   th {

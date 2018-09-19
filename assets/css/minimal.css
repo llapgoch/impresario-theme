@@ -5739,6 +5739,8 @@ select.form-control.input-lg + .chosen-container .chosen-choices {
     box-shadow: none; }
   .tile.nopadding {
     padding: 0; }
+  .tile.noshadow {
+    box-shadow: none !important; }
   .tile.left-nav {
     display: table; }
     .tile.left-nav .tile-body {
@@ -6101,25 +6103,6 @@ select.form-control.input-lg + .chosen-container .chosen-choices {
   -webkit-font-smoothing: antialiased; }
   [class^="tile"].color table {
     border-color: rgba(255, 255, 255, 0.1); }
-    [class^="tile"].color table.table-bordered {
-      border-collapse: separate;
-      border: 0; }
-      [class^="tile"].color table.table-bordered > thead > tr td,
-      [class^="tile"].color table.table-bordered > thead > tr th,
-      [class^="tile"].color table.table-bordered > tbody > tr td,
-      [class^="tile"].color table.table-bordered > tbody > tr th,
-      [class^="tile"].color table.table-bordered > tfoot > tr td,
-      [class^="tile"].color table.table-bordered > tfoot > tr th {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 0;
-        border-right: 0; }
-      [class^="tile"].color table.table-bordered > thead > tr:last-child td,
-      [class^="tile"].color table.table-bordered > thead > tr:last-child th,
-      [class^="tile"].color table.table-bordered > tbody > tr:last-child td,
-      [class^="tile"].color table.table-bordered > tbody > tr:last-child th,
-      [class^="tile"].color table.table-bordered > tfoot > tr:last-child td,
-      [class^="tile"].color table.table-bordered > tfoot > tr:last-child th {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
     [class^="tile"].color table a {
       color: #fff; }
     [class^="tile"].color table.table-hover > tbody > tr:hover > td,
@@ -6286,25 +6269,6 @@ select.form-control.input-lg + .chosen-container .chosen-choices {
     border-color: rgba(255, 255, 255, 0.5); }
     [class^="tile"].transparent-white table.table-status-rows tbody tr {
       color: #717171; }
-    [class^="tile"].transparent-white table.table-bordered {
-      border-collapse: separate;
-      border: 0; }
-      [class^="tile"].transparent-white table.table-bordered > thead > tr td,
-      [class^="tile"].transparent-white table.table-bordered > thead > tr th,
-      [class^="tile"].transparent-white table.table-bordered > tbody > tr td,
-      [class^="tile"].transparent-white table.table-bordered > tbody > tr th,
-      [class^="tile"].transparent-white table.table-bordered > tfoot > tr td,
-      [class^="tile"].transparent-white table.table-bordered > tfoot > tr th {
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        border-bottom: 0;
-        border-right: 0; }
-      [class^="tile"].transparent-white table.table-bordered > thead > tr:last-child td,
-      [class^="tile"].transparent-white table.table-bordered > thead > tr:last-child th,
-      [class^="tile"].transparent-white table.table-bordered > tbody > tr:last-child td,
-      [class^="tile"].transparent-white table.table-bordered > tbody > tr:last-child th,
-      [class^="tile"].transparent-white table.table-bordered > tfoot > tr:last-child td,
-      [class^="tile"].transparent-white table.table-bordered > tfoot > tr:last-child th {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
     [class^="tile"].transparent-white table.table-hover > tbody > tr:hover > td,
     [class^="tile"].transparent-white table.table-hover > tbody > tr:hover > th {
       background-color: rgba(255, 255, 255, 0.2); }
@@ -9347,6 +9311,10 @@ alert alert-success
 /**********************************/
 .table {
   margin-bottom: 0; }
+  .table tr.borderless {
+    border: none; }
+    .table tr.borderless td {
+      border: none; }
   .table td .checkbox,
   .table th .checkbox {
     padding: 0;
