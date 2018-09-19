@@ -10,7 +10,7 @@
 				return;
 			}
 
-			var profit = sell - cost;
+			var profit = Math.max(0, sell - cost);
 
 			$('.js-profit-calculate').val("£" + profit);
 
