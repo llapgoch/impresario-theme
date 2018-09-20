@@ -15,7 +15,7 @@
 			$('.js-profit-calculate').val("£" + profit);
 
 			if(profit && cost) {
-				$('.js-gp-calculate').val(Math.round((profit / sell) * 100) + '%');
+				$('.js-gp-calculate').val((Math.round((profit / sell) * 10000)/100) + '%');
 			}else{
 				$('.js-gp-calculate').val('- -');
 			}

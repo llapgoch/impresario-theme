@@ -1,4 +1,4 @@
-<div class="col-lg-2 col-sm-1">
+<div class="col-xs-1 col-md-2">
     <ul class="nav navbar-nav side-nav mt-1" id="sidebar">
 
         <li class="collapsed-content">
