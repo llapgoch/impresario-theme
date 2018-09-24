@@ -97,12 +97,7 @@
 							&& request.responseJSON && request.responseJSON['data']){
 							self.processResponse(request.responseJSON['data'])
 						}else{
-							// alert(self.options.validateErrorMessage);
-						}
-					},
-					error: function(request){
-						if(request.status !== 0) {
-							// alert(self.options.validateErrorMessage);
+							alert(self.options.validateErrorMessage);
 						}
 					}
 				}
