@@ -93,8 +93,13 @@ function html5blank_header_scripts()
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
         wp_register_script('impresarioglobal', get_template_directory_uri() . '/assets/js/global.js', ['jquery']);
         wp_enqueue_script('impresarioglobal');
-
     }
+
+    wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', ['jquery']);
+    wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', ['jquery', 'popper']);
+
+    wp_enqueue_script('popper');
+    wp_enqueue_script('bootstrap');
 }
 
 // Load HTML5 Blank conditional scripts

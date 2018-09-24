@@ -14,6 +14,9 @@
 		widthLess992();
 	});
 
+	$(document).on('blockReplacerComplete', function(){
+		$('.js-modal-auto-show').modal('show').removeClass('js-modal-auto-show')
+	});
 
 	var widthLess992 = function(){
 
