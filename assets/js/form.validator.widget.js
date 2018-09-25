@@ -7,6 +7,7 @@
 			endpointValidateSaveDataKey: 'endpointValidateSave',
 			endpointSaveDataKey: 'endpointSave',
 			idElementSelectorDataKey: 'idElementSelector',
+			idDataKey: 'idKey',
 			errorContainerSelector: '.js-error-container',
 			validateErrorMessage: 'An error occurred during form submission, please try again',
 			errorClass: 'form-input-error',
@@ -16,6 +17,8 @@
 		},
 		jsData: null,
 		request: null,
+		idElementSelector: null,
+		idKey: null,
 		endpointSave: '',
 		endpointValidateSave: '',
 		isValidated: false,
@@ -27,14 +30,25 @@
 			if(!this.jsData
 				|| !this.jsData[this.options.endpointSaveDataKey]
 				|| !this.jsData[this.options.endpointValidateSaveDataKey]
+				|| !this.jsData[this.options.idDataKey]
 				|| !this.jsData[this.options.idElementSelectorDataKey]){
 				throw 'Form Validator must have an ID element selector, validate and save endpoint defined in jsData'
 			}
 
 			this.endpointSave = this.jsData[this.options.endpointSaveDataKey];
 			this.endpointValidateSave = this.jsData[this.options.endpointValidateSaveDataKey];
+			this.idElementSelector = this.jsData[this.options.idElementSelectorDataKey];
+
+			if(!this.getIdElement().size()){
+				throw 'id Element could not be found';
+			}
 
 			this.addEvents();
+		},
+
+		getIdElement()
+		{
+			return $(this.idElementSelector, this.element);
 		},
 
 		addEvents: function()
@@ -128,6 +142,11 @@
 				}
 
 				return this;
+			}
+
+			// Set the form field ID to the saved entity's ID
+			if(jsonData[this.options.idDataKey]){
+				this.getIdElement().val(jsonData[this.options.idDataKey]);
 			}
 
 			if(jsonData['confirm']){
