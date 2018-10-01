@@ -4284,7 +4284,6 @@ menu {
         vertical-align: top; }
     .navbar .navbar-header .sidebar-collapse {
       display: inline-block;
-      float: right;
       line-height: 43px; }
       .navbar .navbar-header .sidebar-collapse a {
         font-size: 18px;

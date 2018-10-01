@@ -22,11 +22,18 @@
                 <!-- header -->
 			<header class="header clear" role="banner">
                 <div class="navbar navbar-default navbar-fixed-top navbar-transparent-black mm-fixed-top" role="navigation" id="navbar">
+
                     <!-- Branding -->
                     <div class="navbar-header col-md-2">
-                        <a class="navbar-brand" href="/">
+                        <div class="sidebar-collapse d-sm-none">
+                            <a href="#">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                        <a class="navbar-brand d-none d-sm-inline-block" href="/">
                             <strong>IMPRESARIO</strong>
                         </a>
+
                     </div>
                     <!--
                     <ul class="nav navbar-nav quick-actions">
