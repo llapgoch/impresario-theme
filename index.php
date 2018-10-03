@@ -2,9 +2,8 @@
 
 	<main role="main">
         <div class="row">
-        <?php get_sidebar(); ?>
 		<!-- section -->
-		<section class="row col-lg-10 col-sm-11">
+		<section class="col-12 pl-1 pr- pl-md-5 pr-md-5">
             <?php echo do_shortcode('[page_heading]');?>
 
                 <div class="cards row">

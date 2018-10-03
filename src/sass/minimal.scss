@@ -200,6 +200,10 @@ body {
     }
   }
 
+  .navbar-light{
+    background: #f8f9fab5;
+  }
+
   .mask {
     background-color: $transparent-black-8;
     width: 100%;
@@ -393,25 +397,27 @@ menu {
     }
   }
 
+  .navbar-brand {
+    font-weight: $font-weight-light;
+    font-size: 18px;
+    font-family: $font-roboto-condensed;
+    color: white;
+    padding: 0;
+    padding-left: 20px;
+    height: 45px;
+    line-height: 45px;
+
+
+    img {
+      vertical-align: top;
+    }
+
   .navbar-header {
     width: 250px;
     position: relative;
     z-index: 99;
 
-    .navbar-brand {
-      font-weight: $font-weight-light;
-      font-size: 18px;
-      font-family: $font-roboto-condensed;
-      color: white;
-      padding: 0;
-      padding-left: 20px;
-      height: 45px;
-      line-height: 45px;
-      background: url(../images/minimal-logo.png) no-repeat 0 16px;
 
-      img {
-        vertical-align: top;
-      }
     }
 
     .sidebar-collapse {

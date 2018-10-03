@@ -1,10 +1,8 @@
 <?php get_header(); ?>
     <div class="container-fluid">
         <main role="main" class="row">
-            <?php get_sidebar(); ?>
-            <!-- section -->
 
-                <section class="col-xs-11 col-md-10">
+                <section class="col-12 pr- pl-md-5 pr-md-5">
 
 
                 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
