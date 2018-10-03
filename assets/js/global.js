@@ -11,6 +11,14 @@
 			$this.datepicker($.extend({}, dateDefaults, config));
 		});
 
+		$('.js-flip-card').on('mouseover', function(){
+			$(this).addClass('flip');
+		});
+
+		$('.js-flip-card').on('mouseleave', function(){
+			$(this).removeClass('flip');
+		});
+
 		widthLess992();
 	});
 

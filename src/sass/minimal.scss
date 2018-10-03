@@ -4569,7 +4569,7 @@ ul.inlineSelect {
   min-height: 80px;
   margin-bottom: 20px;
 
-  .card {
+  .minimal-card {
     height: 100%;
     position: relative;
     @include perspective(600px);
@@ -4667,7 +4667,7 @@ ul.inlineSelect {
       color: inherit!important;
       padding: 15px 15px 5px 15px;
       text-align: center;
-      height: auto;
+      height: 100%;
       width: 100%;
       min-height: 123px;
       left: 0;
