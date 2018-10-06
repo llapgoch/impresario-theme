@@ -12,7 +12,13 @@ gulp.task('default', function(){
 
 	return gulp.src('src/sass/minimal.scss')
 		.pipe(sass()) // Using gulp-sass
+		.on('error', function (err) {
+			console.log(err.toString());
+
+			this.emit('end');
+		})
 		.pipe(gulp.dest('assets/css/'))
+
 });
 
 gulp.watch('src/sass/**/*.scss', ['default']);
