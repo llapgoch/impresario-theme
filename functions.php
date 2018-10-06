@@ -95,8 +95,8 @@ function html5blank_header_scripts()
         wp_enqueue_script('impresarioglobal');
     }
 
-    wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', ['jquery']);
-    wp_register_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', ['jquery', 'popper']);
+    wp_register_script('popper', get_template_directory_uri() . '/assets/js/popper/popper.min.js', ['jquery']);
+    wp_register_script('bootstrap', get_template_directory_uri() . '/assets/js/bootstrap/bootstrap.min.js', ['jquery', 'popper']);
 
     wp_enqueue_script('popper');
     wp_enqueue_script('bootstrap');
@@ -111,10 +111,6 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-
-    wp_register_style('bootstrapimpressario', get_template_directory_uri() . '/assets/css/vendor/bootstrap/bootstrap.min.css', array(), '1.0', 'all');
-    wp_enqueue_style('bootstrapimpressario');
-
     wp_register_style('mainimpressario', get_template_directory_uri() . '/assets/css/minimal.css', array(), '1.0', 'all');
     wp_enqueue_style('mainimpressario');
 }
