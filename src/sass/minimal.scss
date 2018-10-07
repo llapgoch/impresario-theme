@@ -97,7 +97,7 @@ html {
 
 body {
   font-family: $font-roboto;
-  font-size: $font-size-base;
+  font-size: $font-size-base-minimal;
   font-weight: $font-weight-normal;
   -webkit-font-smoothing: antialiased;
 
@@ -389,9 +389,16 @@ menu {
   min-height: 45px;
   height: 45px;
   padding: 0;
+  font-size: $font-size-base-minimal;
 
   &.navbar-default {
     border: 0;
+  }
+
+  &.navbar-dark{
+    .nav-link{
+      color: white;
+    }
   }
 
   &.navbar-transparent-white {
@@ -403,7 +410,7 @@ menu {
   }
 
   &.navbar-transparent-black {
-    background-color: $transparent-black-1;
+    background-color: $transparent-black-3;
 
     .navbar-header {
       background-color: $transparent-black-05;
@@ -412,7 +419,7 @@ menu {
 
   .navbar-collapse {
     z-index: 1000;
-    background: $transparent-black-5;
+    //background: $transparent-black-5;
   }
 
   .navbar-brand {
@@ -491,14 +498,24 @@ menu {
     }
 
     .dropdown-menu{
-      margin: 0;
-      font-size: $font-size-base;
-      background: #f8f9fa9c;
+      font-size: $font-size-base-minimal;
+      background: $transparent-black-4;
       border-radius: 0 0 .25rem .25rem;
       border: none;
+      margin: -1px 0 0 0;
+      min-width: inherit;
+      padding: 0;
 
       a {
-        color: rgba(0,0,0,.5);
+        color: white;
+      }
+
+      &.show{
+        display: block !important;
+      }
+
+      .dropdown-item {
+        padding: 0.5rem 1rem;
       }
 
       .dropdown-item:focus, .dropdown-item:hover{
@@ -543,14 +560,19 @@ menu {
       }
 
       .dropdown-menu {
-        display: none !important;
+        display: none;
         @include animation-duration(.3s);
+        background: white;
+        min-width: 160px;
 
         >li {
 
           > a {
             color: $font-color;
             font-size: 12px;
+            clear: both;
+            white-space: nowrap;
+            display: block;
 
             .task-info {
               .desc {
@@ -1141,7 +1163,7 @@ menu {
         font-weight: $font-weight-bold;
 
         >i {
-          font-size: $font-size-base;
+          font-size: $font-size-base-minimal;
           line-height: 45px;
           float: right;
         }
@@ -1180,7 +1202,7 @@ menu {
             font-weight: $font-weight-bold;
 
             >i {
-              font-size: $font-size-base;
+              font-size: $font-size-base-minimal;
               margin-right: 8px;
               width: 15px;
               display: inline-block;
@@ -1544,7 +1566,7 @@ menu {
                     position: relative;
 
                     i {
-                      font-size: $font-size-base;
+                      font-size: $font-size-base-minimal;
                       margin-right: 3px;
                       width: 15px;
                       text-align: center;
@@ -2416,7 +2438,7 @@ select.form-control.input-lg + .chosen-container {
         }
 
         i {
-          font-size: $font-size-base;
+          font-size: $font-size-base-minimal;
         }
       }
 
@@ -3774,7 +3796,7 @@ li.dropdown {
     float: left;
 
     .title {
-      font-size: $font-size-base;
+      font-size: $font-size-base-minimal;
       font-weight: $font-weight-medium;
       line-height: 16px;
       color: $transparent-white-8;
@@ -5292,7 +5314,7 @@ dl.filled {
     font-weight: 500;
     color: white;
     font-family: $font-roboto-slab;
-    font-size: $font-size-base;
+    font-size: $font-size-base-minimal;
   }
 
   dd {
@@ -6333,7 +6355,7 @@ alert alert-success
   &.pagination-lg {
     >li>a,
     >li>span {
-      font-size: $font-size-base;
+      font-size: $font-size-base-minimal;
     }
   }
   &.pagination-sm {
@@ -6419,7 +6441,7 @@ alert alert-success
         line-height: 20px;
 
         >i{
-          font-size: $font-size-base;
+          font-size: $font-size-base-minimal;
           position: relative;
           top: 1px;
         }
@@ -6588,7 +6610,7 @@ alert alert-success
   >li {
     > a {
       font-weight: $font-weight-bold;
-      font-size: $font-size-base;
+      font-size: $font-size-base-minimal;
       color: $transparent-white-4;
       margin-right: 0;
       margin-left: 0;
@@ -6741,7 +6763,7 @@ alert alert-success
           float: right;
 
           i {
-            font-size: $font-size-base;
+            font-size: $font-size-base-minimal;
           }
         }
       }
@@ -7776,7 +7798,7 @@ alert alert-success
 
 .flip-clock-divider {
   .flip-clock-label {
-    font-size: $font-size-base;
+    font-size: $font-size-base-minimal;
     color: $font-color;
   }
 }

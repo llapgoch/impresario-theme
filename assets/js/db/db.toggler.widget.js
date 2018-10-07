@@ -211,19 +211,19 @@
 		},
 
 		_removeActiveClass: function () {
-			this._removeClass(this.getLocalOption(this.options.dataActiveClass));
+			this._removeClass(this.getActiveClass());
 		},
 
 		_addActiveClass: function () {
-			this._addClass(this.getLocalOption(this.options.dataActiveClass));
+			this._addClass(this.getActiveClass());
 		},
 
 		_addInactiveClass: function () {
-			this._addClass(this.getLocalOption(this.options.dataInactiveClass));
+			this._addClass(this.getInactiveClass());
 		},
 
 		_removeInactiveClass: function () {
-			this._removeClass(this.getLocalOption(this.options.dataInactiveClass));
+			this._removeClass(this.getInactiveClass());
 		},
 
 		_isStateful: function(){
@@ -248,7 +248,7 @@
 		},
 
 		isActive: function(){
-			return this.element.hasClass(this.options.activeClass);
+			return this.element.hasClass(this.getActiveClass());
 		},
 
 		addTargetElement: function($el){
@@ -291,6 +291,7 @@
 				thisType = type,
 				group;
 
+
 			// Default to true for cascades
 			cascade = cascade === false ? false : true;
 			delay = isNaN(parseInt(delay, 10)) ? null : parseInt(delay, 10);
@@ -315,6 +316,8 @@
 			if(type == Static.ACTION_TOGGLE){
 				thisType = this.isActive() ? Static.ACTION_DEACTIVATE : Static.ACTION_ACTIVATE;
 			}
+
+			console.log(thisType);
 
 
 			if(thisType == Static.ACTION_ACTIVATE){

@@ -69,6 +69,15 @@
 			}
 
 			return this.options[option];
+		},
+
+		getActiveClass: function(){
+			return this.getLocalOption(this.options.dataActiveClass);
+		},
+
+		getInactiveClass: function(){
+			return this.getLocalOption(this.options.dataInactiveClass);
 		}
+
 	});
 }(jQuery));

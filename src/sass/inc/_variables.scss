@@ -6,16 +6,16 @@ $font-ubuntu-mono:            'Ubuntu Mono', sans-serif;
 $font-icons:            			'FontAwesome';
 $font-georgia:                 Georgia, serif !default;
 
-$font-size-base:							14px !default;
-$font-size-extra-large:				ceil($font-size-base * 1.85) !default; // ~26px
-$font-size-large:							ceil($font-size-base * 1.25) !default; // ~18px
-$font-size-small:							ceil($font-size-base * 0.85) !default; // ~12px
-$font-size-mini:							ceil($font-size-base * 0.715) !default; // ~10px
+$font-size-base-minimal:							14px !default;
+$font-size-extra-large:				ceil($font-size-base-minimal * 1.85) !default; // ~26px
+$font-size-large:							ceil($font-size-base-minimal * 1.25) !default; // ~18px
+$font-size-small:							ceil($font-size-base-minimal * 0.85) !default; // ~12px
+$font-size-mini:							ceil($font-size-base-minimal * 0.715) !default; // ~10px
 $font-color-white:            #fff;
 $font-color-dark: rgba(0, 0, 0, 0.7);
 $font-color-blue: rgba(0, 51, 97, 0.7);
 
-$font-colour-nav-selected: $font-color-blue;
+
 
 $font-weight-thin: 						100;
 $font-weight-light: 					300;
@@ -55,4 +55,4 @@ $transparent-black-7:				rgba(0,0,0,.7);
 $transparent-black-8:				rgba(0,0,0,.8);
 $transparent-black-9:       rgba(0,0,0,.9);
 
-$bp-sm: 576;
+$font-colour-nav-selected: $transparent-white-7;
