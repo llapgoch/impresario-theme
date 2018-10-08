@@ -417,11 +417,6 @@ menu {
     }
   }
 
-  .navbar-collapse {
-    z-index: 1000;
-    //background: $transparent-black-5;
-  }
-
   .navbar-brand {
     font-weight: $font-weight-light;
     font-size: 18px;
@@ -458,6 +453,12 @@ menu {
           color: white;
         }
       }
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    .navbar-collapse {
+      z-index: 1000;
     }
   }
 

@@ -317,8 +317,6 @@
 				thisType = this.isActive() ? Static.ACTION_DEACTIVATE : Static.ACTION_ACTIVATE;
 			}
 
-			console.log(thisType);
-
 
 			if(thisType == Static.ACTION_ACTIVATE){
 				if(delay === null) {
