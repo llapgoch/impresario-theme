@@ -7,7 +7,7 @@
 
 		// Change function of navigation on mobile
 		if(window.dbaker.isMobile()){
-			$('.navbar .nav-item.dropdown').each(function(){
+			$('.navbar .nav-item.dropdown .nav-link').each(function(){
 				var $this = $(this);
 
 				$this.removeAttr('data-db-toggler-trigger-activate')
