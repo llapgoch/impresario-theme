@@ -461,6 +461,42 @@ menu {
     }
   }
 
+  .navbar-main{
+    .navbar-label{
+      display: none;
+    }
+
+    @include media-breakpoint-down(xs){
+      background: #8c8c8c;
+
+      .navbar-label{
+        display: inline;
+      }
+
+      li{
+        border-bottom: 1px solid #ffffff47;
+      }
+    }
+
+
+
+    @include media-breakpoint-up(lg){
+      .navbar-label{
+        display: inline;
+      }
+    }
+
+    @include media-breakpoint-up(sm){
+      .navbar-item-logout{
+        display: none;
+      }
+
+      .navbar-item-dashboard .navbar-label{
+        display: none;
+      }
+    }
+  }
+
   .navbar-nav{
     >li {
       position: relative;
@@ -526,6 +562,10 @@ menu {
 
     &.quick-actions {
       float: right;
+
+      @include media-breakpoint-down(xs){
+        display: none;
+      }
 
       >li {
         display: inline-block;

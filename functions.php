@@ -91,7 +91,7 @@ function html5blank_nav()
 function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-        wp_register_script('impresarioglobal', get_template_directory_uri() . '/assets/js/global.js', ['jquery']);
+        wp_register_script('impresarioglobal', get_template_directory_uri() . '/assets/js/global.js', ['jquery', 'dbaker-is-mobile']);
         wp_enqueue_script('impresarioglobal');
     }
 

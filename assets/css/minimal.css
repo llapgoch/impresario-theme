@@ -8566,8 +8566,8 @@ body #content .feed-list {
       width: 120px; }
     body .navbar .navbar-nav.quick-actions {
       position: absolute;
-      right: -260px;
-      top: 0; }
+      top: 0;
+      right: 0; }
     body .navbar.collapsed .navbar-nav.quick-actions {
       right: 0; }
     body .main-wrapper .main-content {
@@ -10329,6 +10329,23 @@ menu {
         color: #f2f2f2; }
         .navbar .navbar-brand .sidebar-collapse a:hover {
           color: white; }
+  .navbar .navbar-main .navbar-label {
+    display: none; }
+  @media (max-width: 575.98px) {
+    .navbar .navbar-main {
+      background: #8c8c8c; }
+      .navbar .navbar-main .navbar-label {
+        display: inline; }
+      .navbar .navbar-main li {
+        border-bottom: 1px solid #ffffff47; } }
+  @media (min-width: 992px) {
+    .navbar .navbar-main .navbar-label {
+      display: inline; } }
+  @media (min-width: 576px) {
+    .navbar .navbar-main .navbar-item-logout {
+      display: none; }
+    .navbar .navbar-main .navbar-item-dashboard .navbar-label {
+      display: none; } }
   .navbar .navbar-nav > li {
     position: relative; }
     .navbar .navbar-nav > li > a {
@@ -10374,6 +10391,9 @@ menu {
       color: rgba(255, 255, 255, 0.7); }
   .navbar .navbar-nav.quick-actions {
     float: right; }
+    @media (max-width: 575.98px) {
+      .navbar .navbar-nav.quick-actions {
+        display: none; } }
     .navbar .navbar-nav.quick-actions > li {
       display: inline-block;
       float: none;

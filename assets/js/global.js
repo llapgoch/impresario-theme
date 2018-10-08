@@ -5,6 +5,24 @@
 			dateFormat: 'dd/mm/yy'
 		};
 
+		// Change function of navigation on mobile
+		if(window.dbaker.isMobile()){
+			$('.navbar .nav-item').each(function(){
+				var $this = $(this);
+
+				console.log("afqf");
+
+				console.log(this);
+
+				$this.removeAttr('data-db-toggler-trigger-activate')
+					.removeAttr('data-db-toggler-trigger-deactivate')
+					.removeAttr('data-db-toggler-deactivate-delay')
+					.attr('data-db-toggler-action', 'click')
+					.attr('data-db-toggler-action', 'toggle');
+
+			})
+		}
+
 		$('.js-date-picker:not(.js-is-locked)').each(function(){
 			var $this = $(this);
 			var config = $this.data('dateSettings') || {};
