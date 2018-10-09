@@ -7106,11 +7106,12 @@ alert alert-success
         >th,
         >td {
           position: relative;
+          white-space: nowrap;
 
           &.sortable {
             cursor: pointer;
             @include transition(all .2s linear);
-            white-space: nowrap;
+
 
             &:hover {
               background-color: $transparent-black-1;

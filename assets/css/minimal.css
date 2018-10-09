@@ -15286,14 +15286,14 @@ alert alert-success .alert {
     user-select: none; }
     .table.table-sortable > thead > tr > th,
     .table.table-sortable > thead > tr > td {
-      position: relative; }
+      position: relative;
+      white-space: nowrap; }
       .table.table-sortable > thead > tr > th.sortable,
       .table.table-sortable > thead > tr > td.sortable {
         cursor: pointer;
         -webkit-transition: all 0.2s linear;
         -moz-transition: all 0.2s linear;
-        transition: all 0.2s linear;
-        white-space: nowrap; }
+        transition: all 0.2s linear; }
         .table.table-sortable > thead > tr > th.sortable:hover,
         .table.table-sortable > thead > tr > td.sortable:hover {
           background-color: rgba(0, 0, 0, 0.1); }
