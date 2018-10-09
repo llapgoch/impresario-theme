@@ -7110,6 +7110,7 @@ alert alert-success
           &.sortable {
             cursor: pointer;
             @include transition(all .2s linear);
+            white-space: nowrap;
 
             &:hover {
               background-color: $transparent-black-1;
@@ -7126,6 +7127,8 @@ alert alert-success
               font-size: 14px;
               float: right;
               margin-top: 3px;
+              position: relative;
+              right: -12px;
             }
 
             &.sort-asc {
