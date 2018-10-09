@@ -10,13 +10,24 @@
 			$('.navbar .nav-item.dropdown .nav-link').each(function(){
 				var $this = $(this);
 
-				$this.removeAttr('data-db-toggler-trigger-activate')
-					.removeAttr('data-db-toggler-trigger-deactivate')
-					.removeAttr('data-db-toggler-deactivate-delay')
+				$this.attr('data-db-toggler-target', $this.data('dropdownTarget'))
 					.attr('data-db-toggler-action', 'click')
-					.attr('data-db-toggler-action', 'toggle');
+					.attr('data-db-toggler-action', 'toggle')
+					.attr('data-db-toggler-group', "navMenuItem");
 
 			})
+		}else{
+			$('.navbar .nav-item.dropdown').each(function(){
+				var $this = $(this);
+
+
+				$this.attr('data-db-toggler-trigger-activate', "mouseenter")
+					.attr('data-db-toggler-trigger-deactivate', "mouseleave")
+					.attr('data-db-toggler-active-class', "show")
+					.attr('data-db-toggler-deactivate-delay', "500")
+					.attr('data-db-toggler-group', "navMenuItem")
+					.attr('data-db-toggler-target', $this.data('dropdownTarget'));
+			});
 		}
 
 		$('.js-date-picker:not(.js-is-locked)').each(function(){
