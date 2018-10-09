@@ -56,8 +56,10 @@ html {
 }
 
 
-.main-container{
+.container-max{
+  max-width: 1040px;
   display: flex;
+  margin: 0 auto;
 }
 
 .main-content-container{
@@ -385,19 +387,33 @@ menu {
 /************* NAVBAR *************/
 /**********************************/
 
+.navbar-container.navbar-transparent-black {
+  background-color: $transparent-black-3;
+
+  .navbar-header {
+    background-color: $transparent-black-05;
+  }
+}
+
 .navbar {
   min-height: 45px;
   height: 45px;
   padding: 0;
   font-size: $font-size-base-minimal;
+  max-width: 1140px;
+  margin: 0 auto;
 
   &.navbar-default {
     border: 0;
   }
 
   &.navbar-dark{
-    .nav-link{
-      color: white;
+
+
+    .navbar-nav{
+      .nav-link{
+        color: white;
+      }
     }
   }
 
@@ -406,14 +422,6 @@ menu {
 
     .navbar-header {
       background-color: $transparent-white-1;
-    }
-  }
-
-  &.navbar-transparent-black {
-    background-color: $transparent-black-3;
-
-    .navbar-header {
-      background-color: $transparent-black-05;
     }
   }
 
@@ -529,9 +537,9 @@ menu {
           content: "";
           display: inline-block;
           width: 1px;
-          height: 30px;
-          background-color: $transparent-black-15;
-          margin-top: 7px;
+          height: 20px;
+          background-color: $transparent-white-5;
+          margin-top: 13px;
           margin-left: -3px;
           vertical-align: top;
           position: absolute;

@@ -10040,8 +10040,10 @@ html {
     left: 0;
     padding-right: 275px; }
 
-.main-container {
-  display: flex; }
+.container-max {
+  max-width: 1040px;
+  display: flex;
+  margin: 0 auto; }
 
 .main-content-container {
   flex-grow: 1; }
@@ -10286,23 +10288,26 @@ menu {
 /**********************************/
 /************* NAVBAR *************/
 /**********************************/
+.navbar-container.navbar-transparent-black {
+  background-color: rgba(0, 0, 0, 0.3); }
+  .navbar-container.navbar-transparent-black .navbar-header {
+    background-color: rgba(0, 0, 0, 0.05); }
+
 .navbar {
   min-height: 45px;
   height: 45px;
   padding: 0;
-  font-size: 14px; }
+  font-size: 14px;
+  max-width: 1140px;
+  margin: 0 auto; }
   .navbar.navbar-default {
     border: 0; }
-  .navbar.navbar-dark .nav-link {
+  .navbar.navbar-dark .navbar-nav .nav-link {
     color: white; }
   .navbar.navbar-transparent-white {
     background-color: rgba(255, 255, 255, 0.1); }
     .navbar.navbar-transparent-white .navbar-header {
       background-color: rgba(255, 255, 255, 0.1); }
-  .navbar.navbar-transparent-black {
-    background-color: rgba(0, 0, 0, 0.3); }
-    .navbar.navbar-transparent-black .navbar-header {
-      background-color: rgba(0, 0, 0, 0.05); }
   .navbar .navbar-toggler {
     margin-right: 5px; }
   .navbar .navbar-brand {
@@ -10370,9 +10375,9 @@ menu {
       content: "";
       display: inline-block;
       width: 1px;
-      height: 30px;
-      background-color: rgba(0, 0, 0, 0.15);
-      margin-top: 7px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin-top: 13px;
       margin-left: -3px;
       vertical-align: top;
       position: absolute;
