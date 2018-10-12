@@ -11360,6 +11360,9 @@ menu {
       background-color: #fbffec;
       border: 1px solid #e9ff9f; }
 
+textarea.form-control {
+  height: auto; }
+
 .checkbox input[type=checkbox].parsley-error + label::before {
   background-color: #ffdddc;
   border: 1px solid #ffaca9; }
