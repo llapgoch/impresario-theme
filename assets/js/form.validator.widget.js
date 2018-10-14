@@ -22,6 +22,8 @@
 		endpointSave: '',
 		endpointValidateSave: '',
 		isValidated: false,
+		serializedData: null,
+		redirectUrl: null,
 
 		_create: function()
 		{
@@ -37,18 +39,35 @@
 
 			this.endpointSave = this.jsData[this.options.endpointSaveDataKey];
 			this.endpointValidateSave = this.jsData[this.options.endpointValidateSaveDataKey];
-			this.idElementSelector = this.jsData[this.options.idElementSelectorDataKey];
+			this.idElementSelector = this.jsData[this.options.idElementSelectorDataKey]
 
 			if(!this.getIdElement().size()){
 				throw 'id Element could not be found';
 			}
 
+			this.serializeFormData();
 			this.addEvents();
 		},
 
 		getIdElement()
 		{
 			return $(this.idElementSelector, this.element);
+		},
+
+		serializeFormData: function()
+		{
+			this.serializedData = this.getSerializedFormData();
+			return this;
+		},
+
+		getSerializedFormData: function()
+		{
+			return this.element.serialize();
+		},
+
+		hasFormChanged: function()
+		{
+			return this.getSerializedFormData() !== this.serializedData;
 		},
 
 		addEvents: function()
@@ -66,6 +85,25 @@
 			};
 
 			this._on(events);
+
+			// Add events to all link elements
+			$('a').on('click.impresarioformvalidator', function(ev){
+				var $this = $(this),
+					href = $this.attr('href');
+
+				// Don't do anything for local links
+				if(href.indexOf('#') == 0){
+					return;
+				}
+
+				if(self.hasFormChanged()){
+					if(window.confirm('Would you like to save your changes before leaving this page?')){
+						ev.preventDefault();
+						self.redirectUrl = href;
+						self.doValidateSaveRequest();
+					}
+				}
+			});
 		},
 
 		removeErrors: function()
@@ -105,7 +143,7 @@
 			this.request = $.ajax(
 					endpoint, {
 					method: 'POST',
-					data: {'formValues':formData},
+					data: {'formValues':formData, navigatingAway: this.redirectUrl !== null ? 1 : 0},
 					complete: function(request){
 						if(request.status == 200
 							&& request.responseJSON && request.responseJSON['data']){
@@ -156,10 +194,18 @@
 				}
 			}
 
+			if(this.redirectUrl){
+				window.location.href = this.redirectUrl;
+				return this;
+			}
+
 			if(jsonData['redirect']){
 				window.location.href = jsonData['redirect'];
 				return this;
 			}
+
+			this.serializeFormData();
+			this.redirectUrl = null;
 		}
 	});
 
