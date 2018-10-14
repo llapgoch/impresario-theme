@@ -62,7 +62,7 @@
 
 		getSerializedFormData: function()
 		{
-			return this.element.serialize();
+			return $(':not([readonly])', this.element).serialize();
 		},
 
 		hasFormChanged: function()
