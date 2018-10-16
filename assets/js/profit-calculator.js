@@ -12,9 +12,9 @@
 
 			var profit = Math.max(0, sell - cost);
 
-			$('.js-profit-calculate').val("£" + profit);
+			$('.js-profit-calculate').val("£" + Math.round(profit * 100)/100);
 
-			if(profit && cost) {
+			if(profit >= 0 && cost) {
 				$('.js-gp-calculate').val((Math.round((profit / sell) * 10000)/100) + '%');
 			}else{
 				$('.js-gp-calculate').val('- -');
