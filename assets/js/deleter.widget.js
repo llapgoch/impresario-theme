@@ -29,7 +29,7 @@
 			this.addEvents();
 		},
 		
-		addEvents: function () {
+		addEvents: function() {
 			var events = {},
 				self = this;
 			
@@ -46,7 +46,7 @@
 			this._on(events);
 		},
 
-		callRemove: function () {
+		callRemove: function() {
 			var self = this;
 
 			if(this.request){

@@ -141,7 +141,7 @@
 			});
 
 			this.request = $.ajax(
-					endpoint, {
+				endpoint, {
 					method: 'POST',
 					data: {'formValues':formData, navigatingAway: this.redirectUrl !== null ? 1 : 0},
 					complete: function(request){
@@ -179,6 +179,8 @@
 					$('[name="' + i + '"]', this.element).addClass(this.options.errorClass);
 				}
 
+				this._trigger('submitcancel');
+
 				return this;
 			}
 
@@ -190,8 +192,11 @@
 			if(jsonData['confirm']){
 				if(window.confirm(jsonData['confirm'])){
 					this.doSaveRequest();
-					return this;
+				}else{
+					this._trigger('submitcancel');
 				}
+
+				return this;
 			}
 
 			if(this.redirectUrl){
