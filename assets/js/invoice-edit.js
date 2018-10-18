@@ -3,14 +3,33 @@
 		var dataSelector = '.js-invoice-data',
 			formSelector = '.js-invoice-form',
 			invoiceValueSelector = '.js-invoice-value',
+			amountRemainingSelector = '.js-amount-remaining',
 			editData = JSON.parse($(dataSelector).val());
 
 		if (editData) {
-			addSubmitEvent();
+			addEvents();
 		}
 
-		function addSubmitEvent()
+		function addEvents()
 		{
+			$(invoiceValueSelector).on('keyup.impresario', function(ev){
+				var invoiceValue = parseFloat($(invoiceValueSelector).val()),
+					remainingInitial = parseFloat(editData['amountRemaining']);
+				
+				if(isNaN(invoiceValue)){
+					invoiceValue = 0;
+				}
+
+				var	remaining = remainingInitial - invoiceValue;
+
+				if(!isNaN(remaining)){
+					remaining = Math.max(0, Math.round(remaining * 100) / 100);
+					$(amountRemainingSelector).val("£" + remaining);
+				}else{
+					$(amountRemainingSelector).val('- -');
+				}
+			});
+
 			$(formSelector).on('submit.impresario', function(ev){
 				var invoiceValue = parseFloat($(invoiceValueSelector).val()),
 					amountRemaining = parseFloat(editData['amountRemaining']);
