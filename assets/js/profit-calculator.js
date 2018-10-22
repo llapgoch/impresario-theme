@@ -1,8 +1,10 @@
 ;(function($){
 	$(document).on('ready', function(){
-		function calculateQuoteProfit() {
-			var sell = parseFloat($('.js-net-sell').val());
-			var cost = parseFloat($('.js-net-cost').val());
+		function calculateProfit() {
+			var sell = parseFloat($('.js-net-sell').val()),
+				 cost = parseFloat($('.js-net-cost').val());
+
+
 
 			if(isNaN(sell) || isNaN(cost)){
 				$('.js-profit-calculate').val('- -');
@@ -10,21 +12,35 @@
 				return;
 			}
 
-			var profit = Math.max(0, sell - cost);
+			var profit = sell - cost;
 
 			$('.js-profit-calculate').val("£" + Math.round(profit * 100)/100);
+			$('.js-gp-calculate').val((Math.round((profit / sell) * 10000)/100) + '%');
+		}
 
-			if(profit >= 0 && cost) {
-				$('.js-gp-calculate').val((Math.round((profit / sell) * 10000)/100) + '%');
-			}else{
-				$('.js-gp-calculate').val('- -');
-			}
+		function calculateActualProfit(){
+			var sell = parseFloat($('.js-actual-sell').val()),
+				cost = parseFloat($('.js-actual-cost').val());
+
+				if(isNaN(sell) || isNaN(cost)){
+					$('.js-actual-profit').val('- -');
+					$('.js-actual-margin').val('- -');
+					return;
+				}
+				
+			var profit = sell - cost;
+			$('.js-actual-profit').val("£" + Math.round(profit * 100)/100);
+			$('.js-actual-margin').val((Math.round((profit / sell) * 10000)/100) + '%');
 		}
 
 		$('.js-net-sell, .js-net-cost').on('keyup', function(){
-			calculateQuoteProfit();
+			calculateProfit();
 		});
 
-		calculateQuoteProfit();
+		$('.js-actual-cost, .js-actual-sell').on('keyup', function(){
+			calculateActualProfit();
+		});
+
+		calculateProfit();
 	});
 }(jQuery));
