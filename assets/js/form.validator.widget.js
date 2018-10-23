@@ -13,7 +13,9 @@
 			errorClass: 'form-input-error',
 			idResultDataKey: 'id',
 			scrollTime: 500,
-			scrollPadding: 50
+			scrollPadding: 50,
+			loaderClass: 'js-show-loader',
+			initiatorLoaderClass: 'js-show-loader'
 		},
 		jsData: null,
 		request: null,
@@ -123,10 +125,22 @@
 			return this;
 		},
 
+		addLoader: function()
+		{
+			this.element.addClass(this.options.loaderClass);
+		},
+
+		removeLoader: function()
+		{
+			this.element.removeClass(this.options.loaderClass);
+		},
+
 		doRequest: function(endpoint)
 		{
 			var self = this,
 				formData = {};
+
+			this.addLoader();
 
 			if(this.request){
 				try {
@@ -150,6 +164,7 @@
 							self.processResponse(request.responseJSON['data'])
 						}else{
 							alert(self.options.validateErrorMessage);
+							self.removeLoader();
 						}
 					}
 				}
@@ -180,6 +195,7 @@
 				}
 
 				this._trigger('submitcancel');
+				this.removeLoader();
 
 				return this;
 			}
@@ -194,6 +210,7 @@
 					this.doSaveRequest();
 				}else{
 					this._trigger('submitcancel');
+					this.removeLoader();
 				}
 
 				return this;
@@ -211,6 +228,7 @@
 
 			this.serializeFormData();
 			this.redirectUrl = null;
+			this.removeLoader();
 		}
 	});
 
