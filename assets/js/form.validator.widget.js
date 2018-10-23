@@ -79,6 +79,7 @@
 
 			events['submit'] = function(ev){
 				self.removeErrors();
+				this.addLoader();
 
 				if(!self.isValidated) {
 					ev.preventDefault();
@@ -139,8 +140,6 @@
 		{
 			var self = this,
 				formData = {};
-
-			this.addLoader();
 
 			if(this.request){
 				try {
