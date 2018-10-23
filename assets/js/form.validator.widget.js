@@ -79,7 +79,7 @@
 
 			events['submit'] = function(ev){
 				self.removeErrors();
-				this.addLoader();
+				self.addLoader();
 
 				if(!self.isValidated) {
 					ev.preventDefault();
