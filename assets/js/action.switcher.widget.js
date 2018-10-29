@@ -29,7 +29,6 @@
 			}
 
 			this.action = this.jsData[this.options.actionDataKey];
-
 			this.addEvents();
 		},
 

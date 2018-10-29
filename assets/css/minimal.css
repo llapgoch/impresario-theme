@@ -8475,7 +8475,7 @@ body #content .feed-list {
   opacity: 1;
   pointer-events: all; }
 
-.js-form-overlay:before {
+.js-form-overlay:before, .js-form-basic:before {
   content: '';
   position: absolute;
   background: url(../images/svg-loaders/three-dots.svg) no-repeat 50%;
@@ -8484,13 +8484,13 @@ body #content .feed-list {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: 201;
   display: block;
   transition: opacity 0.5s;
   pointer-events: none;
   opacity: 0; }
 
-.js-form-overlay:after {
+.js-form-overlay:after, .js-form-basic:after {
   content: '';
   position: absolute;
   height: 100%;
@@ -8504,11 +8504,11 @@ body #content .feed-list {
   pointer-events: none;
   opacity: 0; }
 
-.js-form-overlay.js-show-loader:before {
+.js-form-overlay.js-show-loader:before, .js-form-basic.js-show-loader:before {
   opacity: 1;
   pointer-events: all; }
 
-.js-form-overlay.js-show-loader:after {
+.js-form-overlay.js-show-loader:after, .js-form-basic.js-show-loader:after {
   opacity: 1;
   pointer-events: all; }
 
