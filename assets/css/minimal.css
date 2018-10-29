@@ -10721,28 +10721,28 @@ select.form-control.input-lg + .chosen-container .chosen-choices {
         [class^="tile"].color table > tbody > tr.success > tr,
         [class^="tile"].color table > tfoot > tr.success > td,
         [class^="tile"].color table > tfoot > tr.success > tr {
-          background-color: rgba(72, 245, 0, 0.18); }
+          background-color: rgba(72, 245, 0, 0.18) !important; }
         [class^="tile"].color table > thead > tr.warning > td,
         [class^="tile"].color table > thead > tr.warning > tr,
         [class^="tile"].color table > tbody > tr.warning > td,
         [class^="tile"].color table > tbody > tr.warning > tr,
         [class^="tile"].color table > tfoot > tr.warning > td,
         [class^="tile"].color table > tfoot > tr.warning > tr {
-          background-color: rgba(255, 193, 0, 0.29); }
+          background-color: rgba(255, 193, 0, 0.29) !important; }
         [class^="tile"].color table > thead > tr.danger > td,
         [class^="tile"].color table > thead > tr.danger > tr,
         [class^="tile"].color table > tbody > tr.danger > td,
         [class^="tile"].color table > tbody > tr.danger > tr,
         [class^="tile"].color table > tfoot > tr.danger > td,
         [class^="tile"].color table > tfoot > tr.danger > tr {
-          background-color: rgba(249, 9, 0, 0.17); }
+          background-color: rgba(249, 9, 0, 0.17) !important; }
         [class^="tile"].color table > thead > tr.info > td,
         [class^="tile"].color table > thead > tr.info > tr,
         [class^="tile"].color table > tbody > tr.info > td,
         [class^="tile"].color table > tbody > tr.info > tr,
         [class^="tile"].color table > tfoot > tr.info > td,
         [class^="tile"].color table > tfoot > tr.info > tr {
-          background-color: rgba(34, 190, 239, 0.1); }
+          background-color: rgba(34, 190, 239, 0.1) !important; }
   [class^="tile"].color ul.inline.divided > li {
     border-right-color: rgba(255, 255, 255, 0.15); }
   [class^="tile"][class*="transparent-"] .progress {

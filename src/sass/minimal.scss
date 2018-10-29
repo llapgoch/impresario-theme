@@ -2975,25 +2975,25 @@ select.form-control.input-lg + .chosen-container {
           &.success {
             >td,
             >tr {
-              background-color: rgba(72, 245, 0, 0.18);
+              background-color: rgba(72, 245, 0, 0.18) !important;
             }
           }
           &.warning {
             >td,
             >tr {
-              background-color: rgba(255, 193, 0, 0.29);
+              background-color: rgba(255, 193, 0, 0.29) !important;
             }
           }
           &.danger {
             >td,
             >tr {
-              background-color: rgba(249, 9, 0, 0.17);
+              background-color: rgba(249, 9, 0, 0.17) !important;
             }
           }
           &.info {
             >td,
             >tr {
-              background-color: transparentize($cyan, .9);
+              background-color: transparentize($cyan, .9) !important;
             }
           }
         }
