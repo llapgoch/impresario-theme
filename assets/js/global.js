@@ -47,6 +47,16 @@
 			$(this).addClass('js-show-loader');
 		});
 
+		$('.js-quote-form').on('submit.impresario', function(ev){
+			var $this = $(this);
+			if($('[name="action"]', $this).val() == 'revise'){
+				if(!confirm('Are you sure you want to create a new revision?')){
+					ev.preventDefault();
+					ev.cancelBubble();
+				}
+			}
+		})
+
 	});
 
 	$(document).on('blockReplacerComplete', function(){
