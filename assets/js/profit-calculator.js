@@ -19,7 +19,7 @@
 		}
 
 		function calculateActualProfit(){
-			var sell = parseFloat($('.js-actual-sell').val()),
+			var sell = parseFloat($('.js-net-sell').data('actual-value')),
 				cost = parseFloat($('.js-actual-cost').val());
 
 				if(isNaN(sell) || isNaN(cost)){
@@ -37,7 +37,7 @@
 			calculateProfit();
 		});
 
-		$('.js-actual-cost, .js-actual-sell').on('keyup', function(){
+		$('.js-actual-cost').on('keyup', function(){
 			calculateActualProfit();
 		});
 
