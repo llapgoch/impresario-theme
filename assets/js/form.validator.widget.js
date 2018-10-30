@@ -195,6 +195,7 @@
 
 				this._trigger('submitcancel');
 				this.removeLoader();
+				this.redirectUrl = null;
 
 				return this;
 			}
@@ -210,6 +211,7 @@
 				}else{
 					this._trigger('submitcancel');
 					this.removeLoader();
+					this.redirectUrl = null;
 				}
 
 				return this;
