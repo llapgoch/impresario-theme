@@ -55,7 +55,7 @@
 					ev.cancelBubble();
 				}
 			}
-		})
+		});
 
 	});
 

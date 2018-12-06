@@ -8475,42 +8475,54 @@ body #content .feed-list {
   opacity: 1;
   pointer-events: all; }
 
-.js-form-overlay:before, .js-form-basic:before {
-  content: '';
+/* For loaders which are their own element, combine with js-loader. 
+    Used for when styles such as left need changing which can't be set on pseudo elements **/
+.js-loader-standalone {
   position: absolute;
-  background: url(../images/svg-loaders/three-dots.svg) no-repeat 50%;
-  background-size: 200px;
-  height: 100%;
   width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 201;
-  display: block;
-  transition: opacity 0.5s;
-  pointer-events: none;
-  opacity: 0; }
-
-.js-form-overlay:after, .js-form-basic:after {
-  content: '';
-  position: absolute;
   height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
   left: 0;
-  z-index: 200;
-  display: block;
-  transition: opacity 0.5s;
-  pointer-events: none;
-  opacity: 0; }
+  top: 0;
+  pointer-events: none; }
 
-.js-form-overlay.js-show-loader:before, .js-form-basic.js-show-loader:before {
-  opacity: 1;
-  pointer-events: all; }
-
-.js-form-overlay.js-show-loader:after, .js-form-basic.js-show-loader:after {
-  opacity: 1;
-  pointer-events: all; }
+/* These can be used on their own for elements which require loaders. 
+    If the loader needs styles changing independently, use an empty div with one of these classes 
+    and the standalone class */
+.js-form-overlay, .js-loader {
+  /* Add this to the loader to actually show a loading state */ }
+  .js-form-overlay:before, .js-loader:before {
+    content: '';
+    position: absolute;
+    background: url(../images/svg-loaders/three-dots.svg) no-repeat 50%;
+    background-size: 200px;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 201;
+    display: block;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    opacity: 0; }
+  .js-form-overlay:after, .js-loader:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 200;
+    display: block;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    opacity: 0; }
+  .js-form-overlay.js-show-loader:before, .js-loader.js-show-loader:before {
+    opacity: 1;
+    pointer-events: all; }
+  .js-form-overlay.js-show-loader:after, .js-loader.js-show-loader:after {
+    opacity: 1;
+    pointer-events: all; }
 
 /*****************************************/
 /************* MAIN SETTINGS *************/
