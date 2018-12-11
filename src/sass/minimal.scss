@@ -22,6 +22,7 @@
 @import "components/timeline";
 @import "components/nestable";
 @import "components/loader";
+@import "components/login";
 
 /*****************************************/
 /************* MAIN SETTINGS *************/
@@ -2213,7 +2214,7 @@ select.form-control.input-lg + .chosen-container {
 
   &.input-group-lg {
     >.form-control,
-    >.input-group-addon,
+    >.input-group-text,
     >.input-group-btn>.btn {
       height: 46px;
       padding: 10px 16px;
@@ -2224,7 +2225,7 @@ select.form-control.input-lg + .chosen-container {
 
   &.input-group-sm {
     >.form-control,
-    >.input-group-addon,
+    >.input-group-text,
     >.input-group-btn>.btn {
       height: 25px;
       min-height: 30px;
@@ -2233,7 +2234,7 @@ select.form-control.input-lg + .chosen-container {
     }
   }
 
-  .input-group-addon {
+  .input-group-text {
     border-color: $transparent-black-1;
 
     &.addon-red {
@@ -2288,7 +2289,7 @@ select.form-control.input-lg + .chosen-container {
 }
 
 .input-group .form-control:last-child,
-.input-group-addon:last-child,
+.input-group-text:last-child,
 .input-group-btn:last-child>.btn,
 .input-group-btn:last-child>.btn-group>.btn,
 .input-group-btn:last-child>.dropdown-toggle,
@@ -2298,7 +2299,6 @@ select.form-control.input-lg + .chosen-container {
 }
 
 .input-group .form-control:first-child,
-.input-group-addon:first-child,
 .input-group-btn:first-child>.btn,
 .input-group-btn:first-child>.btn-group>.btn,
 .input-group-btn:first-child>.dropdown-toggle,
@@ -2307,7 +2307,7 @@ select.form-control.input-lg + .chosen-container {
   @include border-right-radius(0);
 }
 
-.input-group-addon:not(:first-child):not(:last-child),
+.input-group-text:not(:first-child):not(:last-child),
 .input-group-btn:not(:first-child):not(:last-child),
 .input-group .form-control:not(:first-child):not(:last-child) {
   @include border-radius(0);

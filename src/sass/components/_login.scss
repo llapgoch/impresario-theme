@@ -1,0 +1,23 @@
+.login-panel form {
+    background: none;
+    box-shadow: none;
+}
+
+.login form .input, .login input[type=text] {
+    /* Fix for flex box elements Wordpress sets as 100% */
+    width: 100px;
+    margin: 0;
+    box-shadow: none;
+    border: 0;
+}
+
+.login .input-group-append {
+    margin-left: 0;
+}
+
+.login .input-group-text {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: rgba(255, 255, 255, 0.6);
+    border: 0;
+    box-shadow: none;
+}
