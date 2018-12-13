@@ -1,6 +1,16 @@
+#login {
+    width: auto;
+}
 .login-panel form {
     background: none;
     box-shadow: none;
+    padding: 0;
+}
+
+.login h1 a {
+    background-size: contain;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .login form .input, .login input[type=text] {
@@ -9,6 +19,8 @@
     margin: 0;
     box-shadow: none;
     border: 0;
+    font-size: 13px;
+    height: 16px;
 }
 
 .login .input-group-append {

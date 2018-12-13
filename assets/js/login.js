@@ -4,9 +4,13 @@
         var impresarioTemplateSelector = '.impresario-login-template',
             $loginForm = $("#loginform"),
             $impresarioTemplateElement = $(impresarioTemplateSelector),
-            $userLoginInput = $('#user_login').addClass('form-control'),
-            $passwordInput = $('#user_pass').addClass('form-control'),
-            $rememberMeInput = $('#rememberme');
+            $userLoginInput = $('#user_login'),
+            $passwordInput = $('#user_pass'),
+            $rememberMeInput = $('#rememberme'),
+            $navElement = $('#nav'),
+            $backToBlog = $('#backtoblog'),
+            $loginError = $('#login_error'),
+            $messages = $('.message');
 
         function getTemplateElementChildren(selector){
             return $(selector, $impresarioTemplateElement).children();
@@ -18,9 +22,14 @@
         $('.pass-group', $loginFormTemplate).prepend($passwordInput);
         $('.remember-group', $loginFormTemplate).prepend($rememberMeInput);
 
-        $loginForm.append($loginFormTemplate);
-        
+        $userLoginInput.addClass('form-control').attr('placeholder', 'Username or Email');
+        $passwordInput.addClass('form-control').attr('placeholder', 'Password');
+        $loginForm.empty().append($loginFormTemplate);
+        $navElement.remove();
+        $backToBlog.remove();
 
+        $loginError.removeAttr('id').addClass('notification notification-red');
+        $messages.removeClass('message').addClass('notification notification-info');
 
     });
 }(jQuery));
