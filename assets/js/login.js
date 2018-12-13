@@ -3,6 +3,7 @@
     $(document).on('ready.impresariologin', function(){
         var impresarioTemplateSelector = '.impresario-login-template',
             $loginForm = $("#loginform"),
+            $lostPasswordForm = $('#lostpasswordform'),
             $impresarioTemplateElement = $(impresarioTemplateSelector),
             $userLoginInput = $('#user_login'),
             $passwordInput = $('#user_pass'),
@@ -16,20 +17,39 @@
             return $(selector, $impresarioTemplateElement).children();
         }
 
-        var $loginFormTemplate = getTemplateElementChildren('.login-form-template');
+        function applyLoginForm(){
+            var $loginFormTemplate = getTemplateElementChildren('.login-form-template');
         
-        $('.user-group', $loginFormTemplate).prepend($userLoginInput);
-        $('.pass-group', $loginFormTemplate).prepend($passwordInput);
-        $('.remember-group', $loginFormTemplate).prepend($rememberMeInput);
+            $('.user-group', $loginFormTemplate).prepend($userLoginInput);
+            $('.pass-group', $loginFormTemplate).prepend($passwordInput);
+            $('.remember-group', $loginFormTemplate).prepend($rememberMeInput);
+    
+            $passwordInput.addClass('form-control').attr('placeholder', 'Password');
+            $loginForm.empty().append($loginFormTemplate);
+        }
 
-        $userLoginInput.addClass('form-control').attr('placeholder', 'Username or Email');
-        $passwordInput.addClass('form-control').attr('placeholder', 'Password');
-        $loginForm.empty().append($loginFormTemplate);
-        $navElement.remove();
-        $backToBlog.remove();
+        function applyLostPasswordForm(){
+            var $lostPasswordTemplate = getTemplateElementChildren('.lostpassword-form-template');
+            $('.user-group', $lostPasswordTemplate).prepend($userLoginInput);
+            $lostPasswordForm.empty().append($lostPasswordTemplate);
+        }
 
-        $loginError.removeAttr('id').addClass('notification notification-red');
-        $messages.removeClass('message').addClass('notification notification-info');
+        function applyShared(){
+            $messages.removeClass('message').addClass('notification notification-info');
+            $userLoginInput.addClass('form-control').attr('placeholder', 'Username or Email');
+            $loginError.removeAttr('id').addClass('notification notification-red');
+            $navElement.remove();
+            $backToBlog.remove();
+        }
+
+        applyShared();
+
+        if($loginForm.size()){
+            applyLoginForm();
+        } else if($lostPasswordForm.size()){
+            applyLostPasswordForm();
+        }
+
 
     });
 }(jQuery));
