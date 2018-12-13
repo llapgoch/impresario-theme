@@ -4,6 +4,7 @@
         var impresarioTemplateSelector = '.impresario-login-template',
             $loginForm = $("#loginform"),
             $lostPasswordForm = $('#lostpasswordform'),
+            $resetPassForm = $('#resetpassform'),
             $impresarioTemplateElement = $(impresarioTemplateSelector),
             $userLoginInput = $('#user_login'),
             $passwordInput = $('#user_pass'),
@@ -34,6 +35,33 @@
             $lostPasswordForm.empty().append($lostPasswordTemplate);
         }
 
+        function applyResetPasswordForm(){
+            var $resetPasswordTemplate = getTemplateElementChildren('.resetpassword-form-template'),
+                $pass1 = $('#pass1'),
+                $pass1Text = $('#pass1-text'),
+                $hideButton = $('.wp-hide-pw'),
+                showPasswordClass = 'show-password';
+
+                $pass1.addClass('form-control');
+                $pass1Text.addClass('form-control');
+                
+                $('.pass-group', $resetPasswordTemplate)
+                    .prepend($pass1)
+                    .prepend($pass1Text)
+                    .append($hideButton);
+                $resetPassForm.empty().append($resetPasswordTemplate);
+
+                $hideButton.on('click.impresario', function(){
+                    var $passGroup = $('.pass-group');
+
+                    if($passGroup.hasClass(showPasswordClass)){
+                        $passGroup.removeClass(showPasswordClass)
+                    }else{
+                        $passGroup.addClass(showPasswordClass);
+                    }
+                });
+        }
+
         function applyShared(){
             $messages.removeClass('message').addClass('notification notification-info');
             $userLoginInput.addClass('form-control').attr('placeholder', 'Username or Email');
@@ -48,6 +76,8 @@
             applyLoginForm();
         } else if($lostPasswordForm.size()){
             applyLostPasswordForm();
+        } else if($resetPassForm.size()){
+            applyResetPasswordForm();
         }
 
 

@@ -33,3 +33,16 @@
     border: 0;
     box-shadow: none;
 }
+
+.login .password-input-wrapper {
+    display: flex;
+}
+
+#resetpassform .wp-hide-pw {
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: none;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
