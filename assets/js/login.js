@@ -38,6 +38,7 @@
         function applyResetPasswordForm(){
             var $resetPasswordTemplate = getTemplateElementChildren('.resetpassword-form-template'),
                 $pass1 = $('#pass1'),
+                $pass2 = $('#pass2'),
                 $pass1Text = $('#pass1-text'),
                 $hideButton = $('.wp-hide-pw'),
                 $strengthResult = $('#pass-strength-result'),
@@ -49,21 +50,28 @@
                 $pass1.addClass('form-control');
                 $pass1Text.addClass('form-control');
                 $weakPasswordCheckbox.attr('id', 'weak-pw-accept');
+
+                $pass2.css('display', 'none');
                 
                 $('.pass-group', $resetPasswordTemplate)
                     .prepend($pass1)
+                    .prepend($pass2)
                     .prepend($pass1Text)
                     .append($hideButton);
+
+                $('.weak-pw-group', $resetPasswordTemplate)
+                    .prepend($weakPasswordCheckbox);
+
+                $('.strength-result', $resetPasswordTemplate)
+                    .append($strengthResult);
 
                 $('.password-advice', $resetPasswordTemplate)
                     .prepend($passwordAdvice);
                 $resetPassForm.empty().append($resetPasswordTemplate);
 
-                $('.strength-result', $resetPasswordTemplate)
-                    .append($strengthResult);
+  
 
-                $('.weak-pw-group', $resetPasswordTemplate)
-                    .prepend($weakPasswordCheckbox);
+                
 
    
                 $resetPasswordTemplate.append($rpKey);
