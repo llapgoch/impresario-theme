@@ -88,27 +88,6 @@
 
 @media only screen and (max-width: 992px) {
   body {
-
-    /* tables */
-    .table-responsive {
-      border: 0;
-      overflow-y: hidden;
-      overflow-x: scroll;
-      width: 100%;
-
-      table {
-        min-width: 920px;
-      }
-
-      &.inbox {
-        overflow: auto;
-
-        table {
-          min-width: 600px;
-        }
-      }
-    }
-
     /* tile navbar */
     #content {
       .tile {

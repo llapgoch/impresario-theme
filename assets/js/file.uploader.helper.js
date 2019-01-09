@@ -5,7 +5,6 @@
         DELETE_SELECTOR = '.js-delete-confirm-file',
         UPLOAD_TABLE_SELECTOR = '.js-table-updater-file'
 
-
     $(function() {
         function applyBlockReplacerEvent(items) {
             $(items).on('block-replacer-before', function(ev, params){
@@ -34,13 +33,13 @@
         // Update the table when an item has been uploaded
         function applyUploadEvent(){
             $(UPLOAD_COMPONENT_SELECTOR).on('fileuploadersuccess', function(){
-                var $uploaderContainer = $(this).closest(UPLOAD_CONTAINER_SELECTOR);
-                var tableUpdaterWidget = $(UPLOAD_TABLE_SELECTOR, $uploaderContainer).data(TABLE_UPDATER_WIDGET);
+                var $uploaderContainer = $(this).closest(UPLOAD_CONTAINER_SELECTOR),
+                    tableUpdaterWidget = $(UPLOAD_TABLE_SELECTOR, $uploaderContainer).data(TABLE_UPDATER_WIDGET);
 
                 if(tableUpdaterWidget){
                     tableUpdaterWidget.gotoPage(1).update();
                 }
-            })
+            });
         }
 
         applyBlockReplacerEvent($(UPLOAD_TABLE_SELECTOR));
