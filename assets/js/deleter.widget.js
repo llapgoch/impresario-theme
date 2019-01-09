@@ -1,5 +1,6 @@
 ;(function($){
 	var DEFAULT_INIT_SELECTOR = '.js-delete-confirm';
+	var UPLOAD_COMPONENT_SELECTOR = '.js-file-uploader-component'
 
 	$.widget('impresario.itemDeleter', {
 		options: {
@@ -65,7 +66,12 @@
 							if(self.returnUrl){
 								window.location = self.returnUrl;
 							}
+
+							self._trigger('success');
+							return;
 						}
+
+						self.trigger('error');
 					},
 					error: function(request){
 						if(request.status !== 0) {
@@ -83,5 +89,12 @@
 
 	$(document).on('ready.impresarioitemdeleter', function(){
 		initialise();
+
+		// This probably shouldn't be here. Reinitialises after a file upload
+		$(UPLOAD_COMPONENT_SELECTOR).on('fileuploadersuccess', function(){
+			initialise();
+		});
 	});
+
+	
 }(jQuery));

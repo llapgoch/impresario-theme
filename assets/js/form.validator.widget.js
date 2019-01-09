@@ -95,7 +95,7 @@
 					href = $this.attr('href');
 
 				// Don't do anything for local links
-				if(href.indexOf('#') == 0){
+				if(href && href.indexOf('#') == 0){
 					return;
 				}
 
