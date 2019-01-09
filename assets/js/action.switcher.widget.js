@@ -20,11 +20,11 @@
 				throw 'Action switcher must have action defined in its data array'
 			}
 
-			if(!this.getFormContainer().size()){
+			if(!this.getFormContainer().length){
 				throw 'Action switcher is not in defined form container selector';
 			}
 
-			if(!this.getActionElement().size()){
+			if(!this.getActionElement().length){
 				throw 'Action element could not be found';
 			}
 
@@ -78,7 +78,7 @@
 		$(DEFAULT_INIT_SELECTOR).actionSwitcher();
 	}
 
-	$(document).on('ready.impresarioactionswitcher', function(){
+	$(function() {
 		initialise();
 	});
 }(jQuery));

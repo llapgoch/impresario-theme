@@ -24,7 +24,7 @@
 	};
 
 	/* Initialisation */
-	$(document).on('ready.' + Static.WIDGET_ID, function(ev) {
+	$(function() {
 		Static.init();
 	});
 
@@ -190,7 +190,7 @@
 
 			var $container = this.element.closest(closestContainer);
 
-			if($container.size()){
+			if($container.length){
 				return $container;
 			}
 

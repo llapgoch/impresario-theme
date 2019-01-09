@@ -43,7 +43,7 @@
 			this.endpointValidateSave = this.jsData[this.options.endpointValidateSaveDataKey];
 			this.idElementSelector = this.jsData[this.options.idElementSelectorDataKey]
 
-			if(!this.getIdElement().size()){
+			if(!this.getIdElement().length){
 				throw 'id Element could not be found';
 			}
 
@@ -237,7 +237,7 @@
 		$(DEFAULT_INIT_SELECTOR).formValidator();
 	}
 
-	$(document).on('ready.impresariovalidator', function(){
+	$(function() {
 		initialise();
 	});
 }(jQuery));

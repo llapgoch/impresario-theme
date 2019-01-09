@@ -1,6 +1,6 @@
 /** Used to style WP's login page */
 ;(function($){
-    $(document).on('ready.impresariologin', function(){
+    $(function() {
         var impresarioTemplateSelector = '.impresario-login-template',
             $loginForm = $("#loginform"),
             $lostPasswordForm = $('#lostpasswordform'),
@@ -97,11 +97,11 @@
 
         applyShared();
 
-        if($loginForm.size()){
+        if($loginForm.length){
             applyLoginForm();
-        } else if($lostPasswordForm.size()){
+        } else if($lostPasswordForm.length){
             applyLostPasswordForm();
-        } else if($resetPassForm.size()){
+        } else if($resetPassForm.length){
             applyResetPasswordForm();
         }
 

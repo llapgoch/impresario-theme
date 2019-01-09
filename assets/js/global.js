@@ -1,5 +1,6 @@
 ;(function($){
-	$(document).on('ready', function(){
+
+	$(function() {
 		var dateDefaults = {
 			maxDate:0,
 			dateFormat: 'dd/mm/yy'

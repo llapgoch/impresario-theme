@@ -85,7 +85,8 @@
 	function initialise(){
 		$(DEFAULT_INIT_SELECTOR).itemDeleter();
 	}
-	$(document).on('ready.impresarioitemdeleter', function(){
+	
+	$(function() {
 		initialise();
 	});
 }(jQuery));
