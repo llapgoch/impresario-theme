@@ -18,8 +18,8 @@
 			this._super();
 			this.jsData = this.element.data(this.options.jsDataKey);
 
-			if(!this.jsData || !this.jsData[this.options.endpointDataKey] || !this.jsData[this.options.returnUrlKey]){
-				throw 'Deleter must have endpoint and returnUrl in its data array'
+			if(!this.jsData || !this.jsData[this.options.endpointDataKey]){
+				throw 'Deleter must have endpoint data array'
 			}
 
 			this.endpoint = this.jsData[this.options.endpointDataKey];
@@ -61,7 +61,10 @@
 				this.endpoint, {
 					complete: function(request){
 						if(request.status == 200){
-							window.location = self.returnUrl;
+							// Check for returnUrl, fire event for other widgets
+							if(self.returnUrl){
+								window.location = self.returnUrl;
+							}
 						}
 					},
 					error: function(request){
