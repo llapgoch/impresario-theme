@@ -2322,6 +2322,7 @@ select.form-control.input-lg + .chosen-container {
 /*********************************/
 
 .tile {
+  overflow: hidden;
   position: relative;
   margin-bottom: 20px;
   color: $font-color;
