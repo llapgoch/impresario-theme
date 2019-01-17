@@ -329,6 +329,22 @@ menu {
     display: none!important;
   }
 
+  *{
+    color: black !important;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  table td, table thead th {
+    border: 1px solid darkgrey !important;
+  }
+
+  .form-control {
+    border: 1px solid darkgray !important;
+  }
+
   #content {
     padding-left: 0!important;
   }
