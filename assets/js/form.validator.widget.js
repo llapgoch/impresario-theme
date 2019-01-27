@@ -51,7 +51,7 @@
 			this.addEvents();
 		},
 
-		getIdElement()
+		getIdElement: function()
 		{
 			return $(this.idElementSelector, this.element);
 		},
