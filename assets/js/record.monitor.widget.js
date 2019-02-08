@@ -1,6 +1,6 @@
 ;(function($) {
     /* Warns the user if the current record is changed by another user and offers a reload */
-	$.widget('impresario.recordMonitor', {
+    $.widget('impresario.recordMonitor', {
         defaultElement: null,
         options: {
             id: null,
@@ -74,27 +74,27 @@
             var self = this;
 
             if(this.request){
-				try {
-					this.request.abort();
-				} catch (e){
-					// For darling IE
-				}
+                try {
+                    this.request.abort();
+                } catch (e){
+                    // For darling IE
+                }
             }
             
             this.request = $.ajax(
-				this.options.endpoint, {
-					method: 'POST',
-					data: {
+                this.options.endpoint, {
+                    method: 'POST',
+                    data: {
                         'timestamp':this.options.timestamp,
                         'id': this.options.id
                     },
-					success: function(responseData){
-						self.processResponseData(responseData)
+                    success: function(responseData){
+                        self.processResponseData(responseData)
                     },
                     complete: function(){
                         self.poll();
                     }
-				}
+                }
             );
             
             return this;
