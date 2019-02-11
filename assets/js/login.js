@@ -47,44 +47,44 @@
                 $passwordAdvice = $('.indicator-hint'),
                 showPasswordClass = 'show-password';
 
-                $pass1.addClass('form-control');
-                $pass1Text.addClass('form-control');
-                $weakPasswordCheckbox.attr('id', 'weak-pw-accept');
+            $pass1.addClass('form-control');
+            $pass1Text.addClass('form-control');
+            $weakPasswordCheckbox.attr('id', 'weak-pw-accept');
 
-                $pass2.css('display', 'none');
+            $pass2.css('display', 'none');
                 
-                $('.pass-group', $resetPasswordTemplate)
-                    .prepend($pass1)
-                    .prepend($pass2)
-                    .prepend($pass1Text)
-                    .append($hideButton);
+            $('.pass-group', $resetPasswordTemplate)
+                .prepend($pass1)
+                .prepend($pass2)
+                .prepend($pass1Text)
+                .append($hideButton);
 
-                $('.weak-pw-group', $resetPasswordTemplate)
-                    .prepend($weakPasswordCheckbox);
+            $('.weak-pw-group', $resetPasswordTemplate)
+                .prepend($weakPasswordCheckbox);
 
-                $('.strength-result', $resetPasswordTemplate)
-                    .append($strengthResult);
+            $('.strength-result', $resetPasswordTemplate)
+                .append($strengthResult);
 
-                $('.password-advice', $resetPasswordTemplate)
-                    .prepend($passwordAdvice);
-                $resetPassForm.empty().append($resetPasswordTemplate);
+            $('.password-advice', $resetPasswordTemplate)
+                .prepend($passwordAdvice);
+            $resetPassForm.empty().append($resetPasswordTemplate);
 
   
 
                 
 
    
-                $resetPasswordTemplate.append($rpKey);
+            $resetPasswordTemplate.append($rpKey);
              
-                $hideButton.on('click.impresario', function(){
-                    var $passGroup = $('.pass-group');
+            $hideButton.on('click.impresario', function(){
+                var $passGroup = $('.pass-group');
 
-                    if($passGroup.hasClass(showPasswordClass)){
-                        $passGroup.removeClass(showPasswordClass)
-                    }else{
-                        $passGroup.addClass(showPasswordClass);
-                    }
-                });
+                if($passGroup.hasClass(showPasswordClass)){
+                    $passGroup.removeClass(showPasswordClass)
+                }else{
+                    $passGroup.addClass(showPasswordClass);
+                }
+            });
         }
 
         function applyShared(){
