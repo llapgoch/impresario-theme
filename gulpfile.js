@@ -1,3 +1,4 @@
+/* eslint-disable */
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var gutil = require('gulp-util');
@@ -24,4 +25,4 @@ gulp.task('default', function(){
 
 });
 
-gulp.watch('src/sass/**/*.scss', ['default']);
+gulp.watch('src/sass/**/*.scss', gulp.series('default'));
