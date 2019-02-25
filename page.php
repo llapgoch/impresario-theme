@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <main role="main" class="row">
 
-                <section class="col-12 pr- pl-md-5 pr-md-5">
+            <section class="col-12 pr- pl-md-5 pr-md-5">
 
 
                 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -29,8 +29,8 @@
 
                 <?php endif; ?>
 
-                </section>
-            </div>
+            </section>
+            
             <!-- /section -->
         </main>
     </div>
