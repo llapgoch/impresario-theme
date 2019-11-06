@@ -32,13 +32,17 @@
 
             events['change ' + this.options.elementSelector] = function (ev) {
                 ev.preventDefault();
-                this.updateFilters();
+                this.updateFilters(true);
             };
 
             events['keyup ' + this.options.elementSelector] = function (ev) {
                 ev.preventDefault();
-                this.updateFilters();
+                this.updateFilters(true);
             };
+
+            $(document).on('tableupdaterbeforeupdate', this.jsData[this.options.tableUpdaterSelectorKey], function(){
+                self.updateFilters(false);
+            });
            
             this._on(events);
             return this;
@@ -49,14 +53,26 @@
             return this.element.serializeJSON();
         },
 
-        updateFilters: function() {
+        getTableUpdaterWidget: function()
+        {
             var updater = this.getTableUpdaterElement().data(this.options.tableUpdaterWidgetName);
-            
+           
             if(!updater){
                 throw 'Table updater widget not found'
             }
 
-            updater.addCustomData('filters', this.getFilterData());
+            return updater;
+        },
+
+        updateFilters: function(triggerUpdate) {
+            var updater = this.getTableUpdaterWidget();
+            triggerUpdate = triggerUpdate === false ? false : true;
+            
+            if(triggerUpdate){
+                updater.gotoPage(1, false);
+            }
+
+            updater.addCustomData('filters', this.getFilterData(), triggerUpdate);
         }
 
     });
