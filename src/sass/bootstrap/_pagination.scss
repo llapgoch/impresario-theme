@@ -1,9 +1,13 @@
 .pagination {
   display: flex;
+  flex-flow: wrap;
   @include list-unstyled();
   @include border-radius();
 }
 
+.pagination .page-link {
+  margin-bottom:5px;
+}
 .page-link {
   position: relative;
   display: block;
