@@ -3079,7 +3079,7 @@ select.form-control.input-lg + .chosen-container {
     }
 
     .form-control[disabled],
-    .form-control[readonly],
+    .form-control[readonly]:not(.display-active),
     fieldset[disabled] .form-control {
       background-color: $transparent-white-3;
       border: 0;

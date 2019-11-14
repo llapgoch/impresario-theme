@@ -40,6 +40,10 @@
                 this.updateFilters(true);
             };
 
+            events['reset'] = function (ev) {
+                this.updateFilters(true);
+            };
+
             $(document).on('tableupdaterbeforeupdate', this.jsData[this.options.tableUpdaterSelectorKey], function(){
                 self.updateFilters(false);
             });
