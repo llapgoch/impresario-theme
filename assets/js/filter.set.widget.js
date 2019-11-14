@@ -40,7 +40,13 @@
                 this.updateFilters(true);
             };
 
+            // The default reset will reset the form using the inital values; we want to reset them to nothing.
             events['reset'] = function (ev) {
+                ev.preventDefault();
+                self.getFilterElements().each(function(){
+                    $(this).val('');
+                });
+
                 this.updateFilters(true);
             };
 
@@ -52,13 +58,15 @@
             return this;
         },
 
-        getFilterData: function()
-        {
+        getFilterElements: function() {
+            return $(this.options.elementSelector, this.element);
+        },
+
+        getFilterData: function() {
             return this.element.serializeJSON();
         },
 
-        getTableUpdaterWidget: function()
-        {
+        getTableUpdaterWidget: function() {
             var updater = this.getTableUpdaterElement().data(this.options.tableUpdaterWidgetName);
            
             if(!updater){
