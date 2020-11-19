@@ -100,7 +100,10 @@ body {
   font-size: $font-size-base-minimal;
   font-weight: $font-weight-normal;
   -webkit-font-smoothing: antialiased;
-  padding-top: 45px;
+  
+  &.logged-in {
+    padding-top: 45px;
+  }
 
   &.modal-open {
     overflow:auto;
