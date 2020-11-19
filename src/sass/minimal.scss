@@ -100,6 +100,7 @@ body {
   font-size: $font-size-base-minimal;
   font-weight: $font-weight-normal;
   -webkit-font-smoothing: antialiased;
+  padding-top: 45px;
 
   &.modal-open {
     overflow:auto;
@@ -403,6 +404,14 @@ menu {
 
 .navbar-container.navbar-transparent-black {
   background-color: $transparent-black-3;
+
+  .navbar-header {
+    background-color: $transparent-black-05;
+  }
+}
+
+.navbar-container.navbar-opaque {
+  background-color: #93706E;
 
   .navbar-header {
     background-color: $transparent-black-05;
