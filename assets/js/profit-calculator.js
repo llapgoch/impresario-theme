@@ -37,9 +37,9 @@
             calculateProfit();
         });
 
-        $('.js-actual-cost').on('keyup', function(){
-            calculateActualProfit();
-        });
+        // $('.js-actual-cost').on('keyup', function(){
+        //     calculateActualProfit();
+        // });
 
         calculateProfit();
     });
