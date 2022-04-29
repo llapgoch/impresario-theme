@@ -21,16 +21,36 @@
         function createInputsForRow(row, rowIndex) {
             var cells = $('td', row);
             var lastCell = cells.last();
+            // Get this from the adapted table template attribute in status-link-attribute-value
+            var rowId = $(row).data('valueId');
 
             cells.each(function (cellIndex, cell) {
                 let $cell = $(cell);
                 let headerKey = $cell.data('code');
+                let cellValue = $cell.data('value');
 
-                if(!isInputCell(headerKey)) {
+                // Hacky way to get the id and deleted flags into the row.
+                if (headerKey === 'remove') {
+                    // Add the items required to identify the row
+                    let $idElement = $(document.createElement('input'));
+                    $idElement.attr('type', 'hidden');
+                    $idElement.attr('name', 'po_items[' + rowIndex + '][id]');
+                    $idElement.val(rowId);
+
+                    $cell.append($idElement);
+
+                    let $removeElement = $(document.createElement('input'));
+                    $removeElement.attr('type', 'hidden');
+                    $removeElement.attr('name', 'po_items[' + rowIndex + '][removed]');
+                    $removeElement.val('0');
+
+                    $cell.append($removeElement);
+                }
+
+                if (!isInputCell(headerKey)) {
                     return true;
                 }
 
-                let cellValue = $cell.data('value');
                 let $input = $(document.createElement('input'));
                 $input.addClass(inputClass);
                 $input.val(cellValue);
@@ -39,6 +59,7 @@
                 $input.attr('name', 'po_items[' + rowIndex + '][' + headerKey + ']');
 
                 $cell.append($input);
+
             });
         };
 
@@ -48,7 +69,7 @@
         // Create inputs for all items
         function init() {
             getTableRows().each(function (rowIndex, row) {
-               createInputsForRow(row, rowIndex);
+                createInputsForRow(row, rowIndex);
             });
         }
 
