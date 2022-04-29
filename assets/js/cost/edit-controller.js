@@ -5,7 +5,9 @@
             invoiceValueSelector = '.js-invoice-value',
             amountRemainingSelector = '.js-amount-remaining',
             inputClass = 'form-control',
-            removeClass = 'btn btn-red btn-sm js-po-remove';
+            removeClass = 'btn btn-red btn-sm js-po-remove',
+            removeButtonSelector = '.js-po-remove',
+            removeInputClass = 'remove-status';
 
         function getTable() {
             return $(tableSelector);
@@ -21,7 +23,6 @@
 
         function createInputsForRow(row, rowIndex) {
             var cells = $('td', row);
-            var lastCell = cells.last();
             // Get this from the adapted table template attribute in status-link-attribute-value
             var rowId = $(row).data('valueId');
 
@@ -34,22 +35,25 @@
                 if (headerKey === 'remove') {
                     // Add the items required to identify the row
                     let $idElement = $(document.createElement('input'));
-                    $idElement.attr('type', 'hidden');
-                    $idElement.attr('name', 'po_items[' + rowIndex + '][id]');
-                    $idElement.val(rowId);
+                    $idElement.attr('type', 'hidden')
+                        .attr('name', 'po_items[' + rowIndex + '][id]')
+                        .val(rowId);
 
                     $cell.append($idElement);
 
                     let $removeElement = $(document.createElement('input'));
-                    $removeElement.attr('type', 'hidden');
-                    $removeElement.attr('name', 'po_items[' + rowIndex + '][removed]');
-                    $removeElement.val('0');
+                    $removeElement.attr('type', 'hidden')
+                        .attr('name', 'po_items[' + rowIndex + '][removed]')
+                        .addClass(removeInputClass)
+                        .val('0');
 
                     $cell.append($removeElement);
 
                     let $removeButton = $(document.createElement('button'));
-                    $removeButton.html('Remove');
-                    $removeButton.addClass(removeClass);
+                    $removeButton.html('Remove')
+                        .addClass(removeClass)
+                        .attr('type', 'button');
+
                     $cell.append($removeButton);
                 }
 
@@ -69,38 +73,56 @@
             });
         };
 
-        // Add inputs t
-
 
         // Create inputs for all items
         function init() {
             getTableRows().each(function (rowIndex, row) {
                 createInputsForRow(row, rowIndex);
             });
+        };
+
+        function getRowForChild(child) {
+            return $(child).closest('tr');
+        };
+
+        function removeRow(row) {
+            $('.' + removeInputClass, row).val(1);
+            row.addClass('d-none');
+
+            updateRemoveVisibilities();
+        };
+
+        function updateRemoveVisibilities() {
+            // hide if only one row is available
         }
 
         init();
-        // addEvents()
+        addEvents();
 
 
         function addEvents() {
-            $(invoiceValueSelector).on('keyup.impresario', function (ev) {
-                var invoiceValue = parseFloat($(invoiceValueSelector).val()),
-                    remainingInitial = parseFloat(editData['amountRemaining']);
-
-                if (isNaN(invoiceValue)) {
-                    invoiceValue = 0;
-                }
-
-                var remaining = remainingInitial - invoiceValue;
-
-                if (!isNaN(remaining)) {
-                    remaining = Math.max(0, Math.round(remaining * 100) / 100);
-                    $(amountRemainingSelector).val("£" + remaining);
-                } else {
-                    $(amountRemainingSelector).val('- -');
+            $(document).on('click', removeButtonSelector, function (ev) {
+                if (confirm('Are you sure you want to remove this item?')) {
+                    removeRow(getRowForChild(ev.currentTarget));
                 }
             });
+            // $(invoiceValueSelector).on('keyup.impresario', function (ev) {
+            //     var invoiceValue = parseFloat($(invoiceValueSelector).val()),
+            //         remainingInitial = parseFloat(editData['amountRemaining']);
+
+            //     if (isNaN(invoiceValue)) {
+            //         invoiceValue = 0;
+            //     }
+
+            //     var remaining = remainingInitial - invoiceValue;
+
+            //     if (!isNaN(remaining)) {
+            //         remaining = Math.max(0, Math.round(remaining * 100) / 100);
+            //         $(amountRemainingSelector).val("£" + remaining);
+            //     } else {
+            //         $(amountRemainingSelector).val('- -');
+            //     }
+            // });
 
 
         }
