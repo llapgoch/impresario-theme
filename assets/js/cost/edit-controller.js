@@ -4,11 +4,12 @@
             inputKeys = ['description', 'qty', 'unit_price'],
             invoiceValueSelector = '.js-invoice-value',
             amountRemainingSelector = '.js-amount-remaining',
-            inputClass = 'form-control';
+            inputClass = 'form-control',
+            removeClass = 'btn btn-red btn-sm js-po-remove';
 
         function getTable() {
             return $(tableSelector);
-        }
+        };
 
         function getTableRows() {
             return $('tbody tr', getTable());
@@ -45,6 +46,11 @@
                     $removeElement.val('0');
 
                     $cell.append($removeElement);
+
+                    let $removeButton = $(document.createElement('button'));
+                    $removeButton.html('Remove');
+                    $removeButton.addClass(removeClass);
+                    $cell.append($removeButton);
                 }
 
                 if (!isInputCell(headerKey)) {
@@ -74,6 +80,7 @@
         }
 
         init();
+        // addEvents()
 
 
         function addEvents() {
