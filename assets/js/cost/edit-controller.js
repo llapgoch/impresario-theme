@@ -16,27 +16,39 @@
 
         function isInputCell(header) {
             return inputKeys.includes(header);
-        }
+        };
+
+        function createInputsForRow(row, rowIndex) {
+            var cells = $('td', row);
+            var lastCell = cells.last();
+
+            cells.each(function (cellIndex, cell) {
+                let $cell = $(cell);
+                let headerKey = $cell.data('code');
+
+                if(!isInputCell(headerKey)) {
+                    return true;
+                }
+
+                let cellValue = $cell.data('value');
+                let $input = $(document.createElement('input'));
+                $input.addClass(inputClass);
+                $input.val(cellValue);
+
+                // Parse these manually using the po_items key
+                $input.attr('name', 'po_items[' + rowIndex + '][' + headerKey + ']');
+
+                $cell.append($input);
+            });
+        };
+
+        // Add inputs t
+
 
         // Create inputs for all items
         function init() {
             getTableRows().each(function (rowIndex, row) {
-                $('td', row).each(function (cellIndex, cell) {
-                    let $cell = $(cell);
-                    let headerKey = $cell.data('code');
-
-                    if(!isInputCell(headerKey)) {
-                        return true;
-                    }
-
-                    let cellValue = $cell.data('value');
-                    let $input = $(document.createElement('input'));
-                    $input.addClass(inputClass);
-                    $input.val(cellValue);
-                    $input.attr('name', 'po_items[' + rowIndex + '][' + headerKey + ']');
-
-                    $cell.append($input);
-                });
+               createInputsForRow(row, rowIndex);
             });
         }
 
