@@ -326,6 +326,11 @@ menu {
 
 /* printing */
 @media print {
+
+  body{
+    background: none !important;
+  }
+  
   .no-print,
   #mmenu,
   #navbar,
