@@ -2,13 +2,12 @@
     $(document).on('ready', function () {
         var tableSelector = '.js-po-item-table',
             inputKeys = ['description', 'qty', 'unit_price'],
-            invoiceValueSelector = '.js-invoice-value',
-            amountRemainingSelector = '.js-amount-remaining',
             inputClass = 'form-control',
             removeClass = 'btn btn-red btn-sm js-po-remove',
             removeButtonSelector = '.js-po-remove',
             removeInputClass = 'remove-status',
-            createNewButtonSelector = '.js-po-item-create';
+            createNewButtonSelector = '.js-po-item-create',
+            poTotalInputSelector = '.js-po-total-value';
 
         function getTable() {
             return $(tableSelector);
@@ -34,6 +33,8 @@
                     totalCell.html('- -');
                 }
             });
+
+            getPOTotalInput().val("£" + total);
         }
 
         function getTableRows(visibleOnly = false) {
@@ -47,6 +48,10 @@
 
         function getRemoveButtons() {
             return $(removeButtonSelector, getTable());
+        }
+
+        function getPOTotalInput() {
+            return $(poTotalInputSelector);
         }
 
         function createInputsForRow(row, rowIndex = null) {
