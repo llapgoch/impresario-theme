@@ -1,13 +1,17 @@
 ; (function ($) {
     $(document).on('ready', function () {
-        var tableSelector = '.js-po-item-table',
+        var formSelector = '.js-cost-form',
+            tableSelector = '.js-po-item-table',
             inputKeys = ['description', 'qty', 'unit_price'],
             inputClass = 'form-control',
             removeClass = 'btn btn-red btn-sm js-po-remove',
             removeButtonSelector = '.js-po-remove',
             removeInputClass = 'remove-status',
             createNewButtonSelector = '.js-po-item-create',
-            poTotalInputSelector = '.js-po-total-value';
+            poTotalInputSelector = '.js-po-total-value',
+            amountRemainingSelector = '.js-amount-remaining-value',
+            amountInvoicedSelector = '.js-amount-invoiced-value',
+            poItemValueAlert = 10000;
 
         function getTable() {
             return $(tableSelector);
@@ -17,6 +21,8 @@
             // Loop over all rows, calculate the totals. Use -- if anything is invalie
             var visibleRows = getTableRows(true);
             var total = 0;
+            var amountInvoiced = parseFloat($(amountInvoicedSelector).data('actual-value'));
+            amountInvoiced = isNaN(amountInvoiced) ? 0 : amountInvoiced;
 
             visibleRows.each(function (i, item) {
                 var qty = parseFloat($('.type-qty', item).val());
@@ -34,7 +40,14 @@
                 }
             });
 
-            getPOTotalInput().val("£" + total);
+            // Store the actual value as an attribute so we can access quickly before saving.
+            // The value check will change at some point to be server side so do here for now
+            var amountRemaining = total - amountInvoiced;
+            getPOTotalInput()
+                .val("£" + total)
+                .data('actual-value', total);
+
+            getAmountRemainingInput().val("£" + amountRemaining);
         }
 
         function getTableRows(visibleOnly = false) {
@@ -52,6 +65,10 @@
 
         function getPOTotalInput() {
             return $(poTotalInputSelector);
+        }
+
+        function getAmountRemainingInput() {
+            return $(amountRemainingSelector);
         }
 
         function createInputsForRow(row, rowIndex = null) {
@@ -189,5 +206,19 @@
             // When the table has been replaced on save, re-run the init to create inputs
             $document.on('block.replacer.item.after.cost.item.list.table', init);
         }
+
+        $(formSelector).on('submit.impresario', function (ev) {
+            var poValue = parseFloat(getPOTotalInput().data('actual-value'));
+
+            if (!isNaN(poValue) && poValue >= poItemValueAlert) {
+                if (!confirm('The total PO Item value exceeds £10,000. Are you sure you want to proceed?')) {
+                    ev.preventDefault();
+                    // Note: ev.isPropagationStopped check added to the form validator widget to stop submissions.
+                    ev.stopPropagation();
+
+                    return false;
+                }
+            }
+        });
     });
 }(jQuery));

@@ -77,6 +77,11 @@
                 events = {};
 
             events['submit'] = function(ev){
+                // Go no further if the event was stopped up the chain
+                if(ev.isPropagationStopped()) {
+                    return;
+                }
+
                 self.removeErrors();
                 self.addLoader();
 
