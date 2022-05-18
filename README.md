@@ -1,3 +1,21 @@
+# Getting the live database
+- Export and import database live to local. Two steps, one for the domain, one for protocol.
+- run from public: ```wp search-replace "tandimo.com" "tandimo.test" ```
+- run from public: ```wp search-replace "https://tandimo.test" "http://tandimo.test"```
+
+# PO Migration
+- Check how many are remaining to be processed:
+```
+"SELECT * FROM lg8z_impresario_cost WHERE is_deleted=0
+AND status IS NULL;"
+
+
+- Merge all branches for po work - do plugin impresario last
+- Keep increasing the cost installer number until all costs are migrated
+- Remove call to PO migrator in code - commit.
+```
+
+
 # [Impresario Base Theme]
 
 This must be run with NVM at version 10

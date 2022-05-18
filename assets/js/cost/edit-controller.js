@@ -11,6 +11,8 @@
             poTotalInputSelector = '.js-po-total-value',
             amountRemainingSelector = '.js-amount-remaining-value',
             amountInvoicedSelector = '.js-amount-invoiced-value',
+            statusSelector = '.js-status',
+            createInvoiceButtonSelector = '.js-invoice-create-button',
             poItemValueAlert = 10000;
 
         function getTable() {
@@ -135,6 +137,7 @@
 
             updateRemoveVisibilities();
             calculatePOItemTotals();
+            updateStatus();
         };
 
         function getRowForChild(child) {
@@ -180,6 +183,14 @@
             calculatePOItemTotals();
         };
 
+        function updateStatus() {
+            if ($(statusSelector).val() === 'closed') {
+                $(createInvoiceButtonSelector).addClass('d-none');
+            } else {
+                $(createInvoiceButtonSelector).removeClass('d-none');
+            }
+        }
+
         init();
         addEvents();
 
@@ -201,6 +212,10 @@
 
             $document.on('keyup', tableSelector + ' .type-unit_price', function (ev) {
                 calculatePOItemTotals();
+            });
+
+            $document.on('change', statusSelector, function (ev) {
+                updateStatus();
             });
 
             // When the table has been replaced on save, re-run the init to create inputs
