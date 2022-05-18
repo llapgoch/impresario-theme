@@ -22,9 +22,11 @@
 
                 var	remaining = remainingInitial - invoiceValue;
 
+                console.log(editData, remainingInitial, invoiceValue);
+
                 if(!isNaN(remaining)){
-                    remaining = Math.max(0, Math.round(remaining * 100) / 100);
-                    $(amountRemainingSelector).val("£" + remaining);
+                    remaining = Math.round(remaining * 100) / 100;
+                    $(amountRemainingSelector).val("£" + remaining.toFixed(2));
                 }else{
                     $(amountRemainingSelector).val('- -');
                 }
