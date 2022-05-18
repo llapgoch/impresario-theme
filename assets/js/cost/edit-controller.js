@@ -49,7 +49,7 @@
                 .val("£" + total)
                 .data('actual-value', total);
 
-            getAmountRemainingInput().val("£" + amountRemaining);
+            getAmountRemainingInput().val("£" + amountRemaining.toFixed(2));
         }
 
         function getTableRows(visibleOnly = false) {
