@@ -22,7 +22,6 @@
 
                 var	remaining = remainingInitial - invoiceValue;
 
-                console.log(editData, remainingInitial, invoiceValue);
 
                 if(!isNaN(remaining)){
                     remaining = Math.round(remaining * 100) / 100;
