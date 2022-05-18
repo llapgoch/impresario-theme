@@ -1,6 +1,6 @@
 ;(function($) {
     var DEFAULT_INIT_SELECTOR = '.js-validate-form';
-
+    
     $.widget('impresario.formValidator', {
         options: {
             jsDataKey: 'jsData',
@@ -32,7 +32,6 @@
             this.jsData = this.element.data(this.options.jsDataKey);
 
             if(!this.jsData
-				|| !this.jsData[this.options.endpointSaveDataKey]
 				|| !this.jsData[this.options.endpointValidateSaveDataKey]
 				|| !this.jsData[this.options.idDataKey]
 				|| !this.jsData[this.options.idElementSelectorDataKey]){
@@ -78,6 +77,11 @@
                 events = {};
 
             events['submit'] = function(ev){
+                // Go no further if the event was stopped up the chain
+                if(ev.isPropagationStopped()) {
+                    return;
+                }
+
                 self.removeErrors();
                 self.addLoader();
 
@@ -122,6 +126,10 @@
 
         doSaveRequest: function()
         {
+            if(!this.endpointSave) {
+                throw new Error('endpointSave not defined');
+            }
+            
             this.doRequest(this.endpointSave);
             return this;
         },
@@ -138,8 +146,7 @@
 
         doRequest: function(endpoint)
         {
-            var self = this,
-                formData = {};
+            var self = this;
 
             if(this.request){
                 try {
@@ -149,9 +156,8 @@
                 }
             }
 
-            $($(this.element).serializeArray()).each(function(i){
-                formData[this.name] = this.value;
-            });
+            // Provided by the serialize object plugin
+            var formData = $(this.element).serializeObject();
 
             this.request = $.ajax(
                 endpoint, {
