@@ -121,6 +121,7 @@
 
                 // Parse these manually using the po_items key
                 $input.attr('name', 'po_items[' + rowIndex + '][' + headerKey + ']');
+                $input.attr('maxlength', 255);
                 $input.addClass('type-' + headerKey);
 
                 $cell.append($input);
