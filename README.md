@@ -46,7 +46,7 @@ The total of all "Net cost" values for variations.
 The total of "value" for all sales invoices.
 
 ### Total Actual Cost
-The total of "value" for all cost items
+The total of "po_item_total" for all cost (purchase order) items
 
 ### Invoice Amount Remaining
 Total Net Sell - Amount Invoiced
