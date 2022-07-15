@@ -91,6 +91,11 @@
                 }
             };
 
+            // Trigger this event on the form to re-serialise the data (E.g. after adding fields with JS)
+            events['updateFormData'] = function(ev) {
+                self.serializeFormData();
+            }
+
             this._on(events);
 
             // Add events to all link elements
