@@ -18,28 +18,9 @@
             $('.js-gp-calculate').val((Math.round((profit / sell) * 10000)/100) + '%');
         }
 
-        function calculateActualProfit(){
-            var sell = parseFloat($('.js-net-sell').data('actual-value')),
-                cost = parseFloat($('.js-actual-cost').val());
-
-            if(isNaN(sell) || isNaN(cost)){
-                $('.js-actual-profit').val('- -');
-                $('.js-actual-margin').val('- -');
-                return;
-            }
-				
-            var profit = sell - cost;
-            $('.js-actual-profit').val("£" + Math.round(profit * 100)/100);
-            $('.js-actual-margin').val((Math.round((profit / sell) * 10000)/100) + '%');
-        }
-
         $('.js-net-sell, .js-net-cost').on('keyup', function(){
             calculateProfit();
         });
-
-        // $('.js-actual-cost').on('keyup', function(){
-        //     calculateActualProfit();
-        // });
 
         calculateProfit();
     });
