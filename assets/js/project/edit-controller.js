@@ -19,7 +19,7 @@
                 updateRebateControl();
             });
 
-            $(rebatePercentageSelector).on('keyup', function(ev){
+            $(rebatePercentageSelector).on('keyup', function (ev) {
                 calculateRebate();
             });
 
@@ -39,15 +39,15 @@
             var rebateOriginalFloatValue = rebateValue;
 
 
-            if(isNaN(netSell)) {
+            if (isNaN(netSell)) {
                 netSell = 0;
             }
 
-            if(isNaN(rebateValue)) {
+            if (isNaN(rebateValue)) {
                 rebateValue = 0;
             }
 
-            if(isNaN(costItemTotal)) {
+            if (isNaN(costItemTotal)) {
                 costItemTotal = 0;
             }
 
@@ -56,7 +56,7 @@
             rebateValue = Math.floor(rebateValue * 100, 2) / 100;
 
             // Clamp & reset the rebate percentage, if entered
-            if(rebateValue !== rebateOriginalFloatValue && rebateOriginalValue !== '') {
+            if (rebateValue !== rebateOriginalFloatValue && rebateOriginalValue !== '') {
                 $rebateEl.val(rebateValue);
             }
 
@@ -68,18 +68,18 @@
             // Calculate actual profit
             var actualProfit = netSell - totalActualCost;
             var actualMargin = 0;
-            
-            
-            if(netSell > 0) {
+
+
+            if (netSell > 0) {
                 actualMargin = (actualProfit / netSell) * 100;
                 actualMargin = Math.round(actualMargin * 100) / 100;
             }
 
-            $rebateAmountEl.val("£" + (rebateAmount.toFixed(2)));
-            $actualCostEl.val("£" + (totalActualCost.toFixed(2)));
-            $actualProfitEl.val("£" + (actualProfit.toFixed(2)));
+            // Cast to a number after applying toFixed, then toLocaleString to add thousand seps
+            $rebateAmountEl.val("£" + (Number(rebateAmount.toFixed(2)).toLocaleString()));
+            $actualCostEl.val("£" + (Number(totalActualCost.toFixed(2)).toLocaleString()));
+            $actualProfitEl.val("£" + (Number(actualProfit.toFixed(2)).toLocaleString()));
             $actualMarginEl.val(actualMargin + "%");
-            
         }
 
         function updateRebateControl() {
