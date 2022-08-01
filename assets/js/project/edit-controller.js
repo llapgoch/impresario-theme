@@ -35,7 +35,8 @@
             var costItemTotal = parseFloat($actualCostEl.data('item-total'));
 
             var rebateOriginalValue = $rebateEl.val();
-            var rebateOriginalValue, rebateValue = parseFloat(rebateOriginalValue);
+            var rebateValue = parseFloat(rebateOriginalValue);
+            var rebateOriginalFloatValue = rebateValue;
 
 
             if(isNaN(netSell)) {
@@ -51,9 +52,11 @@
             }
 
             rebateValue = Math.max(0, Math.min(rebateValue, 100));
+            // round to 2dp
+            rebateValue = Math.floor(rebateValue * 100, 2) / 100;
 
             // Clamp & reset the rebate percentage, if entered
-            if(rebateValue !== rebateOriginalValue && rebateOriginalValue !== '') {
+            if(rebateValue !== rebateOriginalFloatValue && rebateOriginalValue !== '') {
                 $rebateEl.val(rebateValue);
             }
 
