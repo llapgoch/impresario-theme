@@ -139,6 +139,8 @@
             updateRemoveVisibilities();
             calculatePOItemTotals();
             updateStatus();
+
+            getTable().trigger('updateFormData');
         };
 
         function getRowForChild(child) {
