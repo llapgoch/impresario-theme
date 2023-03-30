@@ -46,10 +46,13 @@
             // The value check will change at some point to be server side so do here for now
             var amountRemaining = total - amountInvoiced;
             getPOTotalInput()
-                .val("£" + total)
+                .val("£" + total.toFixed(2))
                 .data('actual-value', total);
 
-            getAmountRemainingInput().val("£" + amountRemaining.toFixed(2));
+            // Round to 2dp for amount remaining to avoid -0 values when using toFixed
+            amountRemaining = Math.round(amountRemaining * 100) / 100;
+
+            getAmountRemainingInput().val("£" + amountRemaining);
         }
 
         function getTableRows(visibleOnly = false) {
