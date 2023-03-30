@@ -49,10 +49,10 @@
                 .val("£" + total.toFixed(2))
                 .data('actual-value', total);
 
-            // Round to 2dp for amount remaining to avoid -0 values when using toFixed
+            // Round before using toFixed, otherwise precision floating negatives in the calculation make toFixed give -0.00 values
             amountRemaining = Math.round(amountRemaining * 100) / 100;
-
-            getAmountRemainingInput().val("£" + amountRemaining);
+            // Use toFixed to format the number to always have 2DP
+            getAmountRemainingInput().val("£" + amountRemaining.toFixed(2));
         }
 
         function getTableRows(visibleOnly = false) {
