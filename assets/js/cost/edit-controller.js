@@ -46,9 +46,12 @@
             // The value check will change at some point to be server side so do here for now
             var amountRemaining = total - amountInvoiced;
             getPOTotalInput()
-                .val("£" + total)
+                .val("£" + total.toFixed(2))
                 .data('actual-value', total);
 
+            // Round before using toFixed, otherwise precision floating negatives in the calculation make toFixed give -0.00 values
+            amountRemaining = Math.round(amountRemaining * 100) / 100;
+            // Use toFixed to format the number to always have 2DP
             getAmountRemainingInput().val("£" + amountRemaining.toFixed(2));
         }
 
