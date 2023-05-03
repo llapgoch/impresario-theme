@@ -36,7 +36,7 @@
                     rowTotal = Math.round(rowTotal * 100) / 100;
                     total += rowTotal;
 
-                    totalCell.html("£" + rowTotal);
+                    totalCell.html("£" + rowTotal.toFixed(2));
                 } else {
                     totalCell.html('- -');
                 }
