@@ -19,6 +19,14 @@
             return $(tableSelector);
         };
 
+        // Use the standard block method to create jsData items
+        function getJsData(key) {
+            const data = getTable().data('jsData');
+            if (data) {
+                return data[key];
+            }
+        }
+
         function calculatePOItemTotals() {
             // Loop over all rows, calculate the totals. Use -- if anything is invalie
             var visibleRows = getTableRows(true);
@@ -82,6 +90,7 @@
             var rowId = $(row).data('valueId');
             // Use the highest number of existing rows if rowIndex isn't provided
             var rowIndex = rowIndex === null ? getTableRows().length : rowIndex;
+            var locked = getJsData('locked');
 
             cells.each(function (cellIndex, cell) {
                 let $cell = $(cell);
@@ -106,12 +115,14 @@
 
                     $cell.append($removeElement);
 
-                    let $removeButton = $(document.createElement('button'));
-                    $removeButton.html('Remove')
-                        .addClass(removeClass)
-                        .attr('type', 'button');
+                    if (!locked) {
+                        let $removeButton = $(document.createElement('button'));
+                        $removeButton.html('Remove')
+                            .addClass(removeClass)
+                            .attr('type', 'button');
 
-                    $cell.append($removeButton);
+                        $cell.append($removeButton);
+                    }
                 }
 
                 if (!isInputCell(headerKey)) {
@@ -121,6 +132,10 @@
                 let $input = $(document.createElement('input'));
                 $input.addClass(inputClass);
                 $input.val(cellValue);
+
+                if(locked) {
+                    $input.attr('disabled', 'disabled');
+                }
 
                 // Parse these manually using the po_items key
                 $input.attr('name', 'po_items[' + rowIndex + '][' + headerKey + ']');
